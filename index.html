@@ -4,139 +4,113 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Francis Irabor — Designer & Animator</title>
-<meta name="description" content="Francis Irabor is a designer and animator working in motion graphics, 3D product visualization, illustration and brand identity.">
+<meta name="description" content="Francis Irabor is a designer and animator: motion graphics, 3D product design and visualization, illustration and brand identity.">
 <meta property="og:title" content="Francis Irabor — Designer & Animator">
 <meta property="og:description" content="Animation and design that drive engagement.">
 <meta property="og:image" content="assets/media/447ab943bb53fb584e51a7de0f1eb393.png">
-<meta name="theme-color" content="#121112">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
-<body>
+<body class="page-home">
 
-<header class="bar" id="top">
-  <a class="brand" href="#top"><strong>Francis Irabor</strong><span> / Designer &amp; Animator</span></a>
-  <nav class="nav" aria-label="Main">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a class="nav-cv" href="https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk" target="_blank" rel="noopener">View CV ↗</a>
-  </nav>
+<header class="site-head on-dark">
+  <div class="head-in">
+    <a class="brand" href="index.html"><strong>Francis Irabor</strong><span> / Designer &amp; Animator</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a class="btn head-cv" href="https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk" target="_blank" rel="noopener">View CV</a>
+  </div>
 </header>
 
 <main>
   <section class="hero">
-    <img class="hero-art" data-asset="media/447ab943bb53fb584e51a7de0f1eb393.png" alt="" aria-hidden="true">
-    <div class="hero-copy wrap">
-      <p class="eyebrow mono">Motion · 3D · Illustration · Brand</p>
-      <h1>Animation and design that drive <em>engagement.</em></h1>
-      <div class="hero-cta">
-        <a class="btn btn-solid" href="#work">See the work</a>
-        <a class="btn btn-line" href="#contact">Start a project</a>
+    <img class="hero-bg" data-asset="media/447ab943bb53fb584e51a7de0f1eb393.png" alt="">
+    <div class="canvas">
+      <h1 class="abs" style="--x:54;--y:193;--w:985">Animation and Design That Drive Engagement</h1>
+      <div class="abs hero-btns" style="--x:54;--y:446;--w:526">
+        <a class="btn" href="about.html">About me</a>
+        <a class="btn" href="portfolio.html">See portfolio</a>
       </div>
     </div>
   </section>
 
   <section class="clients" aria-labelledby="clients-h">
-    <div class="wrap">
-      <h2 id="clients-h" class="label">Clients I've worked with</h2>
-      <ul class="logos" id="logos"></ul>
-    </div>
-  </section>
-
-  <section class="featured wrap" aria-labelledby="featured-h">
-    <div class="sec-head">
-      <h2 id="featured-h" class="h2">Selected work</h2>
-      <a class="more" href="#work">Full portfolio →</a>
-    </div>
-    <div class="feat-grid" id="featured"></div>
+    <h2 id="clients-h" class="sec-title">Clients I’ve worked with</h2>
+    <ul class="logos" id="logos"></ul>
   </section>
 
   <section class="services" aria-labelledby="services-h">
-    <div class="wrap services-in">
-      <h2 id="services-h" class="h2">Services</h2>
-      <ul class="svc">
-        <li>3D product design</li>
-        <li>3D visualization &amp; product animation</li>
-        <li>Motion graphics animation</li>
-        <li>2D &amp; 3D animation</li>
-        <li>Brand identity</li>
-        <li>Graphic design</li>
-        <li>Print &amp; poster design</li>
-        <li>Illustration</li>
-      </ul>
-    </div>
+    <h2 id="services-h" class="sec-title">Services offered</h2>
+    <ul class="pills">
+      <li>3D product design</li>
+      <li class="wide">3D visualization &amp; product animation</li>
+      <li>Illustration</li>
+      <li class="break" aria-hidden="true"></li>
+      <li class="mid">Print design &amp; poster design</li>
+      <li class="mid">Motion graphics animation</li>
+      <li class="break" aria-hidden="true"></li>
+      <li>Graphics design</li>
+      <li>2D &amp; 3D animation</li>
+      <li>Brand identity</li>
+    </ul>
   </section>
 
-  <section class="work wrap" id="work" aria-labelledby="work-h">
-    <div class="sec-head">
-      <h2 id="work-h" class="h2">Portfolio</h2>
-      <p class="count mono" id="count"></p>
+  <section class="featured" aria-labelledby="featured-h">
+    <div class="canvas" id="featured">
+      <h2 id="featured-h" class="abs" style="--x:0;--y:32;--w:1351">Featured works</h2>
+      <a class="btn abs" style="--x:543;--y:997;--w:266" href="portfolio.html">See full portfolio</a>
     </div>
-    <div class="filters" role="tablist" aria-label="Filter work" id="filters"></div>
-    <p class="cat-note" id="cat-note"></p>
-    <div class="masonry" id="grid"></div>
   </section>
 
   <section class="process" aria-labelledby="process-h">
-    <div class="wrap">
-      <h2 id="process-h" class="h2">How I turn ideas into impact</h2>
-      <ol class="steps">
-        <li><span class="mono">01</span><h3>Discovery</h3><p>Align on what matters and define the metrics that prove success.</p></li>
-        <li><span class="mono">02</span><h3>Direction</h3><p>Choose a winning creative path with fast alignment and zero drift.</p></li>
-        <li><span class="mono">03</span><h3>Design</h3><p>Build fast, refine with structure, and keep momentum high.</p></li>
-        <li><span class="mono">04</span><h3>Delivery</h3><p>Handoff built for scale, launched without missing details.</p></li>
-      </ol>
-    </div>
+    <h2 id="process-h">How I turn ideas into impact</h2>
+    <ol class="steps">
+      <li><div class="step-num">1</div><h3>Discovery</h3><p>Align on what matters and define the metrics that prove success.</p></li>
+      <li><div class="step-num">2</div><h3>Direction</h3><p>Choose a winning creative path with fast alignment and zero drift.</p></li>
+      <li><div class="step-num">3</div><h3>Design</h3><p>Build fast, refine with structure, and keep momentum high.</p></li>
+      <li><div class="step-num">4</div><h3>Delivery</h3><p>Handoff built for scale and launch without missing details.</p></li>
+    </ol>
   </section>
 
-  <section class="about wrap" id="about" aria-labelledby="about-h">
-    <img class="about-photo" data-asset="media/d3cc3a8931e93b3ef50e0372a1a22fde.jpg" alt="Portrait of Francis Irabor" loading="lazy" width="1056" height="1320">
-    <div class="about-copy">
-      <h2 id="about-h" class="h2">About</h2>
-      <p class="lede">I specialize in design and animation. I've worked with clients across finance, publishing, fashion, music, arts, culture, tech and marketing.</p>
-      <h3 class="label">Tools I work in</h3>
-      <ul class="tools" id="tools"></ul>
-      <a class="btn btn-line" href="https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk" target="_blank" rel="noopener">View CV ↗</a>
-    </div>
+  <section class="tools" aria-labelledby="tools-h">
+    <h2 id="tools-h" class="sec-title">I'm proficient in:</h2>
+    <ul class="tool-grid" id="tools"></ul>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
-    <img class="contact-art" data-asset="media/1b5c234012dc1e3e456450051a8c2458.png" alt="" aria-hidden="true" loading="lazy">
-    <div class="wrap contact-in">
-      <blockquote>“The creative direction sharpened our identity and boosted our campaign results.”</blockquote>
-      <h2 id="contact-h" class="h1">Let's work together.</h2>
-      <a class="mail" href="mailto:iraborfrancis321@gmail.com">iraborfrancis321@gmail.com</a>
-      <ul class="social">
-        <li><a href="https://www.linkedin.com/in/francis-irabor/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-        <li><a href="https://www.upwork.com/freelancers/~016a7653f43e068393" target="_blank" rel="noopener">Upwork ↗</a></li>
-        <li><a href="mailto:iraborfrancis321@gmail.com">Email</a></li>
-      </ul>
+    <img class="contact-bg" data-asset="media/1b5c234012dc1e3e456450051a8c2458.png" alt="" loading="lazy">
+    <div class="canvas">
+      <h2 id="contact-h" class="abs" style="--x:102;--y:37;--w:620">Let's work together</h2>
+      <p class="quote abs" style="--x:102;--y:188;--w:561">“The creative direction sharpened our identity and boosted our campaign results.”</p>
+      <div class="socials abs" style="--x:102;--y:326;--w:460">
+        <a href="mailto:iraborfrancis321@gmail.com"><img data-asset="media/7943743180d7529bf4c23de31a8e55f7.jpg" alt="">Email</a>
+        <a href="https://www.linkedin.com/in/francis-irabor/" target="_blank" rel="noopener"><img data-asset="media/8703cfd0a00c2d8097f10c7c7dd7bab1.jpg" alt="">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~016a7653f43e068393" target="_blank" rel="noopener"><img data-asset="media/041181512664e263e16214a79624ae55.jpg" alt="">Upwork</a>
+      </div>
+      <a class="mail abs" style="--x:854;--y:267;--w:364" href="mailto:iraborfrancis321@gmail.com">iraborfrancis321@gmail.com</a>
+      <a class="btn abs boxed" style="--x:854;--y:334;--w:364;--bh:90" href="mailto:iraborfrancis321@gmail.com">Send me a message</a>
     </div>
   </section>
 </main>
 
-<footer class="foot wrap">
-  <span>© <span id="yr"></span> Francis Irabor</span>
-  <a href="#top">Back to top ↑</a>
-</footer>
-
-<!-- Lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Portfolio viewer" hidden>
   <div class="lb-top">
-    <p class="lb-meta mono"><span id="lb-cat"></span><span id="lb-spec"></span></p>
-    <p class="lb-count mono" id="lb-count"></p>
-    <button class="lb-btn lb-close" id="lb-close" aria-label="Close viewer">✕</button>
+    <p class="lb-cat" id="lb-cat"></p>
+    <p class="lb-count" id="lb-count"></p>
+    <button class="lb-btn" id="lb-close" aria-label="Close viewer">✕</button>
   </div>
   <div class="lb-stage" id="lb-stage"></div>
   <button class="lb-btn lb-nav lb-prev" id="lb-prev" aria-label="Previous piece">←</button>
   <button class="lb-btn lb-nav lb-next" id="lb-next" aria-label="Next piece">→</button>
-  <div class="lb-strip" id="lb-strip" aria-label="All pieces"></div>
+  <div class="lb-strip" id="lb-strip"></div>
 </div>
 
-<script src="works.js?v=2"></script>
-<script src="app.js?v=2"></script>
+<script src="works.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

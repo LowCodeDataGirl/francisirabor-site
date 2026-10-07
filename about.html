@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About — Francis Irabor</title>
+<meta name="description" content="About Francis Irabor, designer and animator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body class="page-about">
+
+<header class="site-head on-light">
+  <div class="head-in">
+    <a class="brand" href="index.html"><strong>Francis Irabor</strong><span> / Designer &amp; Animator</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+    <span></span>
+  </div>
+</header>
+
+<main>
+  <section class="about" aria-labelledby="about-h">
+    <div class="canvas">
+      <div class="about-photo abs boxed" style="--x:54;--y:27;--w:527;--bh:640">
+        <img data-asset="media/d3cc3a8931e93b3ef50e0372a1a22fde.jpg" alt="Portrait of Francis Irabor">
+      </div>
+      <h1 id="about-h" class="abs" style="--x:714;--y:123;--w:561">ABOUT ME</h1>
+      <p class="bio abs" style="--x:714;--y:223;--w:561">I specialize in Design and Animation. I have worked with clients in various industries such as finance, publishing, fashion, music, arts, culture, tech and marketing.</p>
+      <a class="btn abs boxed" style="--x:714;--y:428;--w:232;--bh:55" href="https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk" target="_blank" rel="noopener">View CV</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <img class="contact-bg" data-asset="media/1b5c234012dc1e3e456450051a8c2458.png" alt="" loading="lazy">
+    <div class="canvas">
+      <h2 id="contact-h" class="abs" style="--x:102;--y:40;--w:800">Let's work together</h2>
+      <p class="quote abs" style="--x:102;--y:155;--w:600">“The creative direction sharpened our identity and boosted our campaign results.”</p>
+      <div class="socials abs" style="--x:102;--y:326;--w:460">
+        <a href="mailto:iraborfrancis321@gmail.com"><img data-asset="media/7943743180d7529bf4c23de31a8e55f7.jpg" alt="">Email</a>
+        <a href="https://www.linkedin.com/in/francis-irabor/" target="_blank" rel="noopener"><img data-asset="media/8703cfd0a00c2d8097f10c7c7dd7bab1.jpg" alt="">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~016a7653f43e068393" target="_blank" rel="noopener"><img data-asset="media/041181512664e263e16214a79624ae55.jpg" alt="">Upwork</a>
+      </div>
+      <a class="mail abs" style="--x:854;--y:267;--w:364" href="mailto:iraborfrancis321@gmail.com">iraborfrancis321@gmail.com</a>
+      <a class="btn abs boxed" style="--x:854;--y:334;--w:364;--bh:90" href="mailto:iraborfrancis321@gmail.com">Send me a message</a>
+    </div>
+  </section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Portfolio viewer" hidden>
+  <div class="lb-top">
+    <p class="lb-cat" id="lb-cat"></p>
+    <p class="lb-count" id="lb-count"></p>
+    <button class="lb-btn" id="lb-close" aria-label="Close viewer">✕</button>
+  </div>
+  <div class="lb-stage" id="lb-stage"></div>
+  <button class="lb-btn lb-nav lb-prev" id="lb-prev" aria-label="Previous piece">←</button>
+  <button class="lb-btn lb-nav lb-next" id="lb-next" aria-label="Next piece">→</button>
+  <div class="lb-strip" id="lb-strip"></div>
+</div>
+
+<script src="works.js?v=4"></script>
+<script src="app.js?v=4"></script>
+</body>
+</html>

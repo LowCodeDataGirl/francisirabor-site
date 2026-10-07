@@ -6,10 +6,9 @@ Plain HTML/CSS/JS. No build step, no framework, no monthly fee.
 
 - **Click any piece → it opens full screen.** Videos play with sound and controls; nothing autoplays while scrolling.
 - **Next / previous through the whole portfolio** with arrows, keyboard ←/→, swipe on phones, or the thumbnail strip. Esc or ✕ closes.
-- **No cropped edges on phones.** Every piece keeps its real shape (16:9, 9:16, 4:5, 1:1, 3:1) in a masonry grid that goes 3 → 2 → 1 columns.
-- **Filter chips** by category (Motion, 3D Product Animation, 3D Product Design, 3D Visualization, Graphic Design, Illustration).
+- **Phones get their own layout.** On desktop the collages match the Canva design; on a phone each section stacks into a clean grid where every piece keeps its real shape.
 - Desktop: hovering a video previews it silently. Videos only download when they're about to scroll into view, so the page loads fast on mobile data.
-- Home, About, Portfolio and Contact are one page with anchor links.
+- Same three pages as the Canva site: Home (`index.html`), About (`about.html`) and Portfolio (`portfolio.html`), laid out to match it.
 
 ## 1. Get the images and videos (do this first, while the Canva site is still live)
 
@@ -31,12 +30,6 @@ Cloudflare Pages and GitHub Pages work the same way.
 
 ## Editing the portfolio
 
-All work lives in `works.js`. To add a piece, drop the file in `assets/media` or `assets/video` and add a line:
-
-```js
-{ id: "m9", cat: "motion", type: "video", src: "video/new-piece.mp4", ratio: 9/16, dur: 6.0 },
-```
-
-`ratio` is width ÷ height (16/9, 9/16, 4/5, 1). `FEATURED` at the bottom picks the six pieces on the home section.
+All work lives in `works.js`: `WORKS` lists each piece, `PORTFOLIO` places them in each portfolio section (x, y, width, height on the original 1351px-wide Canva canvas), and `FEATURED` sets the five home-page cards.
 
 Tip for future videos: export H.264 MP4 at 1080px on the long side, ~4–6 Mbps. Keeps them sharp and quick on phones.
