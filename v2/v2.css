@@ -321,3 +321,39 @@ body.lb-open { overflow: hidden; }
 .cite-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--tan); }
 
 @media (max-width: 760px) { .br-d { display: none; } }
+
+/* ---------- Hero as social posts ---------- */
+.fan.ig { height: auto; display: flex; justify-content: center; align-items: center; gap: 0; margin-top: 52px; padding-bottom: 72px; }
+.fan.ig > * { position: relative; bottom: auto; }
+.ig-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; text-align: left; box-shadow: 0 30px 60px -28px rgba(15,15,15,.35); }
+.ig-card.main { width: min(52%, 500px); z-index: 2; }
+.ig-card.side { width: min(25%, 230px); z-index: 1; opacity: .97; }
+.ig-card.side.l { transform: rotate(-5deg) translateX(18px) translateY(14px); }
+.ig-card.side.r { transform: rotate(5deg) translateX(-18px) translateY(14px); }
+.ig-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 10px 12px; }
+.ig-av { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font: 700 .7rem/1 var(--display); color: #fff; background: var(--ink); box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--tan); }
+.ig-head b { display: block; font: 600 .85rem/1.2 var(--display); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ig-head small { display: block; font-size: .72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ig-more { color: var(--ink); font-size: .75rem; letter-spacing: 1px; }
+.ig-media { position: relative; background: #111; }
+.ig-media .tile { aspect-ratio: var(--r); border-radius: 0; }
+.ig-media .tile:hover img, .ig-media .tile:hover video { transform: none; }
+.ig-media.reel .tile { aspect-ratio: 9 / 14; }
+.ig-badge { position: absolute; top: 10px; right: 10px; z-index: 2; width: 22px; height: 22px; color: #fff; filter: drop-shadow(0 1px 3px rgba(0,0,0,.5)); pointer-events: none; }
+.ig-sound { position: absolute; right: 10px; bottom: 10px; z-index: 2; padding: 6px 10px; border-radius: 999px; background: rgba(15,15,15,.72); color: #fff; font: 500 .72rem/1 var(--display); pointer-events: none; }
+.ig-actions { display: flex; align-items: center; gap: 14px; padding: 10px 12px 4px; color: var(--ink); }
+.ig-actions svg { width: 22px; height: 22px; }
+.ig-actions .sp { flex: 1; }
+.ig-card.side .ig-actions { gap: 10px; padding-bottom: 10px; }
+.ig-card.side .ig-actions svg { width: 18px; height: 18px; }
+.ig-cap { margin: 0; padding: 4px 12px 14px; font-size: .84rem; line-height: 1.45; color: var(--text); }
+.ig-cap b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+.ig-cap span { color: #6b5a4e; }
+.fan.ig .float-chip { position: absolute; }
+@media (max-width: 760px) {
+  .fan.ig { margin-top: 32px; padding-bottom: 48px; }
+  .ig-card.main { width: 100%; max-width: 460px; }
+  .ig-card.side { display: none; }
+}
+.ig-sound::after { content: "Click for sound"; }
+@media (hover: none) { .ig-sound::after { content: "Tap for sound"; } }

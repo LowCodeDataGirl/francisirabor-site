@@ -4,6 +4,14 @@ MAIL = "iraborfrancis321@gmail.com"
 LI = "https://www.linkedin.com/in/francis-irabor/"
 UP = "https://www.upwork.com/freelancers/~016a7653f43e068393"
 MARK = '<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 C 45 3, 95 2, 135 5 S 185 10, 197 4"/></svg>'
+
+SV = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'
+HEART = f'<svg {SV}><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'
+COMMENT = f'<svg {SV}><path d="M20 12a8 8 0 1 1-3.1-6.3A8 8 0 0 1 20 12z"/><path d="M20 20l-2.2-2.3"/></svg>'
+SEND = f'<svg {SV}><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg>'
+SAVE = f'<svg {SV}><path d="M6 3h12v18l-6-4-6 4z"/></svg>'
+REEL = f'<svg {SV}><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M14 3l3 5"/><path d="M10 12v5l4-2.5z" fill="currentColor"/></svg>'
+
 def mark(w): return f'<span class="mark">{w}{MARK}</span>'
 ARR = '<span class="arr" aria-hidden="true">→</span>'
 
@@ -146,16 +154,22 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
       <p class="lede">I'm Francis Irabor, a designer and animator creating 3D product visuals, motion graphics and illustration for brands.</p>
       <div class="hero-cta"><a class="btn btn-dark" href="work.html">See my work {ARR}</a></div>
       <p class="hero-note">Click any piece to watch it full screen</p>
-      <div class="fan">
-        <div class="phone l" data-pieces="m1" data-group="hero" data-eager></div>
-        <div class="screen">
-          <div class="screen-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-          <p class="screen-title">Francis Irabor <span>●</span> motion <span>●</span> 3D <span>●</span> illustration</p>
-          <div data-pieces="pa3" data-group="hero"></div>
-        </div>
-        <div class="phone r" data-pieces="p4" data-group="hero" data-eager></div>
-        <span class="float-chip a"><b></b>3D product animation</span>
-        <span class="float-chip b"><b></b>Motion graphics</span>
+      <div class="fan ig" aria-label="Recent work, shown as social posts">
+        <article class="ig-card side l">
+          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Reel · Motion graphics</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <div class="ig-media reel" data-pieces="m3" data-group="hero" data-bare><span class="ig-badge" aria-hidden="true">{REEL}</span></div>
+        </article>
+        <article class="ig-card main">
+          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Loopwise · SaaS launch film</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <div class="ig-media" data-pieces="lw1" data-group="hero" data-autoplay data-bare><span class="ig-sound" aria-hidden="true"></span></div>
+          <div class="ig-actions" aria-hidden="true">{HEART}{COMMENT}{SEND}<span class="sp"></span>{SAVE}</div>
+          <p class="ig-cap"><b>Francis Irabor</b> Meet Loopwise. A 20-second SaaS launch film: logo reveal, product UI and end card. <span>#motiondesign #saas #launchfilm</span></p>
+        </article>
+        <article class="ig-card side r">
+          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Post · Graphic design</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <div class="ig-media" data-pieces="g2" data-group="hero" data-eager></div>
+          <div class="ig-actions" aria-hidden="true">{HEART}{COMMENT}{SEND}<span class="sp"></span>{SAVE}</div>
+        </article>
       </div>
     </div>
   </section>

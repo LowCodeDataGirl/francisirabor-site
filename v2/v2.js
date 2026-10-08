@@ -14,7 +14,8 @@
     "graphics-design": "Campaign posters and social graphics for brands, causes and launches.",
     "motion-graphics": "Explainers, logo reveals and social cut-downs, from 8-second loops to 2-minute films."
   };
-  const CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: s.frames.map((f) => f[0]) }));
+  const NEW = window.NEW_WORKS || {};
+  const CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: [...(NEW[s.id] || []), ...s.frames.map((f) => f[0])] }));
   const CAT_OF = {};
   CATS.forEach((c) => c.ids.forEach((id) => { CAT_OF[id] = c.title; }));
   const ALL = CATS.flatMap((c) => c.ids);
@@ -49,10 +50,15 @@
       v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
       v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
       v.dataset.src = url(w.src); v.dataset.t = posterT(w);
-      io.observe(v);
+      if (w.poster) v.poster = url(w.poster);
+      if (opts.autoplay && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // Feed-style: plays silently on its own, opens with sound when clicked.
+        v.autoplay = true; v.setAttribute("autoplay", ""); v.preload = "auto"; v.src = v.dataset.src;
+        b.classList.add("is-previewing");
+      } else io.observe(v);
       b.append(v);
       if (!opts.bare) b.insertAdjacentHTML("beforeend", `<span class="dur" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg>${fmt(w.dur)}</span>`);
-      if (canHover) {
+      if (canHover && !opts.autoplay) {
         b.addEventListener("mouseenter", () => { if (!v.getAttribute("src")) v.src = v.dataset.src; b.classList.add("is-previewing"); v.play().catch(() => {}); });
         b.addEventListener("mouseleave", () => { b.classList.remove("is-previewing"); v.pause(); try { v.currentTime = +v.dataset.t; } catch (_) {} });
       }
@@ -87,7 +93,7 @@
   document.querySelectorAll("[data-pieces]").forEach((el) => {
     const g = el.dataset.group || "all";
     const list = g === "all" ? ALL : groups[g];
-    el.dataset.pieces.split(",").forEach((id) => el.append(tile(id, list, { eager: el.hasAttribute("data-eager") })));
+    el.dataset.pieces.split(",").forEach((id) => el.append(tile(id, list, { eager: el.hasAttribute("data-eager"), autoplay: el.hasAttribute("data-autoplay"), bare: el.hasAttribute("data-bare") })));
   });
 
   const logos = $("#logos");
@@ -203,7 +209,7 @@
       slide.append(m);
       stage.replaceChildren(slide);
       if (m.tagName === "VIDEO") m.play().catch(() => {});
-      $("#lb-cat").textContent = CAT_OF[id] || "";
+      $("#lb-cat").textContent = W[id].title ? `${W[id].title} · ${W[id].caption}` : (CAT_OF[id] || "");
       $("#lb-count").textContent = `${i + 1} / ${list.length}`;
       strip.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", String(k === i)));
       strip.children[i]?.scrollIntoView({ block: "nearest", inline: "center" });

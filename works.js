@@ -5,6 +5,8 @@
 window.ASSET_BASE = window.ASSET_BASE || "assets/";
 
 window.WORKS = {
+  // New work (added Oct 2026)
+  lw1: { type: "video", src: "video/loopwise-saas-launch.mp4", poster: "media/loopwise-saas-launch.jpg", ratio: 16/9, dur: 20.0, title: "Loopwise", caption: "SaaS launch film" },
   // 3D product design
   p1: { type: "image", src: "media/09437fe339a3f55db56ba86aab9ef504.png", ratio: 16/9 },
   p2: { type: "image", src: "media/cfbd9b1e1c3305fa9b6ea3251aae517c.png", ratio: 16/9 },
@@ -91,3 +93,6 @@ window.TOOL_ICONS = [
   "media/52cdb30401ac4c50e5f56a4f3878f460.jpg", "media/6db4f5893aeb29343777212c5c861836.jpg",
   "media/b16bbe7de1031de38eb53d2638cfcaf7.jpg", "media/6b89d26d10673f41cb560550aee69779.jpg"
 ];
+
+/* New pieces shown first in a category on the v2 site (the Canva-layout pages ignore this). */
+window.NEW_WORKS = { "motion-graphics": ["lw1"] };
