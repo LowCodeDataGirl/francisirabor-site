@@ -156,8 +156,8 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
       <p class="hero-note">Click any piece to watch it full screen</p>
       <div class="fan ig" aria-label="Recent work, shown as social posts">
         <article class="ig-card side l">
-          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Reel · Motion graphics</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
-          <div class="ig-media reel" data-pieces="m3" data-group="hero" data-bare><span class="ig-badge" aria-hidden="true">{REEL}</span></div>
+          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Story Roll · Welcome video</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <div class="ig-media reel" data-pieces="sr1" data-group="hero" data-autoplay data-bare><span class="ig-badge" aria-hidden="true">{REEL}</span></div>
         </article>
         <article class="ig-card main">
           <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Loopwise · SaaS launch film</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
@@ -191,7 +191,7 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
   <section aria-label="Specialties">
     <div class="wrap specs">
 {spec("cube", "3D product", "Products that look real before they're made", "Studio-quality renders and short 3D films for launches, packaging and ads. Products turn, open and catch the light exactly the way the brand wants.", "3d-product-animation", "See 3D product work", "p-mix", "pa3,p1,p2", "3D product design")}
-{spec("play", "Motion", "Motion that stops the scroll", "Explainers, logo reveals and social cut-downs in every format: 9:16 for stories and reels, square for feeds, 16:9 for the big screen.", "motion-graphics", "See motion work", "p-tall", "m1,m2,m3", "Motion graphics")}
+{spec("play", "Motion", "Motion that stops the scroll", "Explainers, logo reveals and social cut-downs in every format: 9:16 for stories and reels, square for feeds, 16:9 for the big screen.", "motion-graphics", "See motion work", "p-tall", "sr1,m1,m2", "Motion graphics")}
 {spec("space", "3D spaces", "Rooms you can walk through before they're built", "Event stages and brand spaces visualised in 3D, so clients can approve the layout, lighting and branding before anything is set up.", "3d-visualization", "See 3D visualization", "p-mix", "v3,v4,v5", "3D visualization")}
 {spec("pen", "Illustration & graphics", "Illustration and posters with personality", "Characters, banners and campaign posters with a bold, playful line, built to carry a brand across print and social.", "illustration", "See illustration", "p-mix", "i2,g3,g4", "Illustration & posters")}
     </div>

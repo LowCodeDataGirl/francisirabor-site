@@ -15,7 +15,8 @@
     "motion-graphics": "Explainers, logo reveals and social cut-downs, from 8-second loops to 2-minute films."
   };
   const NEW = window.NEW_WORKS || {};
-  const CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: [...(NEW[s.id] || []), ...s.frames.map((f) => f[0])] }));
+  const HIDE = window.HIDDEN_WORKS || [];
+  const CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: [...(NEW[s.id] || []), ...s.frames.map((f) => f[0])].filter((id) => !HIDE.includes(id)) }));
   const CAT_OF = {};
   CATS.forEach((c) => c.ids.forEach((id) => { CAT_OF[id] = c.title; }));
   const ALL = CATS.flatMap((c) => c.ids);

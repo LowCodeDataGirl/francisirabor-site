@@ -6,6 +6,7 @@ window.ASSET_BASE = window.ASSET_BASE || "assets/";
 
 window.WORKS = {
   // New work (added Oct 2026)
+  sr1: { type: "video", src: "video/story-roll-welcome.mp4", poster: "media/story-roll-welcome.jpg", ratio: 9/16, dur: 15.0, title: "Story Roll", caption: "First-use welcome video" },
   lw1: { type: "video", src: "video/loopwise-saas-launch.mp4", poster: "media/loopwise-saas-launch.jpg", ratio: 16/9, dur: 20.0, title: "Loopwise", caption: "SaaS launch film" },
   // 3D product design
   p1: { type: "image", src: "media/09437fe339a3f55db56ba86aab9ef504.png", ratio: 16/9 },
@@ -95,4 +96,8 @@ window.TOOL_ICONS = [
 ];
 
 /* New pieces shown first in a category on the v2 site (the Canva-layout pages ignore this). */
-window.NEW_WORKS = { "motion-graphics": ["lw1"] };
+window.NEW_WORKS = { "motion-graphics": ["lw1", "sr1"] };
+
+/* Pieces taken off the v2 site (still listed above so the Canva-layout pages keep their shape):
+   m3 Remi release clip, m4 altcoin, m5 Schedify teaser, m7 Remi landscape film. */
+window.HIDDEN_WORKS = ["m3", "m4", "m5", "m7"];
