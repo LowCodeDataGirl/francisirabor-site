@@ -495,3 +495,5 @@ body.lb-open { overflow: hidden; }
 .toolkit { display: grid; gap: 18px; }
 .tk-group { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; }
 .tk-group .tk-label { min-width: 150px; }
+.mq-track .word { display: inline-flex; align-items: center; gap: 10px; }
+.mq-track .word .ico { height: 26px; width: 26px; max-width: none; opacity: 1; }

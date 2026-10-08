@@ -127,9 +127,9 @@ window.CASES = [
     facts: [["Format", "9:16 vertical"], ["Length", "43 seconds"], ["Deliverable", "Brand film"], ["Role", "Motion design & animation"]] }
 ];
 
-/* Client strip, most recognisable first. Text entries show until logo files are added. */
+/* Client strip, most recognisable first. Icon + name entries use brand marks from the Simple Icons library. */
 window.CLIENTS = [
-  { text: "YouTube" }, { text: "Google Gemini" }, { text: "Google for Startups" },
+  { icon: "media/brand-youtube.svg", text: "YouTube" }, { icon: "media/brand-gemini.svg", text: "Google Gemini" }, { icon: "media/brand-google.svg", text: "Google for Startups" },
   { img: "media/fa371bc5b47ad61936281e5c776d29ca.png", name: "Shotstack" },
   { img: "media/f0c255c817b42fe8b2a6dfabb900338e.svg", name: "Lenco" },
   { img: "media/cda8aca2d9626228318d3ccc2e7cc72b.png", name: "PaywithAccount" },

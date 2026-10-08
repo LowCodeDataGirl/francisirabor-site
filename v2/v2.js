@@ -111,7 +111,7 @@
   document.querySelectorAll(".marquee").forEach((m) => {
     const items = (window.CLIENTS || []).map((c) => c.img
       ? `<li><img src="${url(c.img)}" alt="${c.name}" loading="lazy"></li>`
-      : `<li class="word">${c.text}</li>`).join("");
+      : `<li class="word">${c.icon ? `<img class="ico" src="${url(c.icon)}" alt="">` : ""}${c.text}</li>`).join("");
     // Two copies side by side make the loop seamless; the copy is hidden from screen readers.
     m.innerHTML = `<ul class="mq-track">${items}</ul><ul class="mq-track" aria-hidden="true">${items}</ul>`;
   });

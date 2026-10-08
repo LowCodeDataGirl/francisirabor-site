@@ -10,8 +10,9 @@ TALK = f"mailto:{MAIL}?subject=Let%27s%20talk"
 
 # One sentence that says who he is, for people, search engines and AI agents alike.
 POSITION = ("Francis Irabor is a motion designer and 3D artist who creates launch films, product visuals "
-            "and social content for tech and consumer brands. He is available for freelance projects and "
-            "full-time roles, working remotely with teams in the US, UK, Canada and Australia.")
+            "and social content for tech and consumer brands. He has worked with clients in the US, UK, Canada "
+            "and Australia, both on contract and in remote full-time roles, and is open to new freelance projects "
+            "and full-time positions.")
 
 MARK = '<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 C 45 3, 95 2, 135 5 S 185 10, 197 4"/></svg>'
 def mark(w): return f'<span class="mark">{w}{MARK}</span>'
@@ -149,7 +150,7 @@ def closer(wall=False):
         <a class="btn btn-dark" href="{TALK}">Let's talk {ARR}</a>
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
       </div>
-      <p class="avail"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles · Remote, working with teams in the US, UK, Canada and Australia</p>
+      <p class="avail"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles · Clients across the US, UK, Canada and Australia</p>
       <p class="mail"><span>{MAIL}</span> · <a href="{LI}" target="_blank" rel="noopener">LinkedIn</a> · <a href="{UP}" target="_blank" rel="noopener">Upwork</a></p>
     </div>
     {'<div class="wall" id="wall"></div>' if wall else ''}
@@ -375,12 +376,12 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
     <div class="about-copy">
       <p class="big">A great product still has to earn a few seconds of attention. That is the job I do.</p>
       <p>I'm Francis Irabor, a designer and animator. I turn products, apps and ideas into motion, 3D and design that people stop for, understand quickly and remember, whether that's a 15-second app welcome video, a launch film or a full campaign.</p>
-      <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, and I'm open to freelance projects and full-time roles.</p>
+      <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, for clients in the US, UK, Canada and Australia, both on contract and in remote full-time roles. I'm open to both.</p>
       <ul class="facts">
         <li><b>What I make</b>Motion graphics, 3D product visuals, brand and graphic design, illustration</li>
         <li><b>Industries</b>Tech, finance, publishing, fashion, music, arts and culture</li>
         <li><b>Open to</b>Freelance projects and full-time roles</li>
-        <li><b>Where</b>Remote, with teams in the US, UK, Canada and Australia</li>
+        <li><b>Clients in</b>The US, UK, Canada and Australia, on contract and full-time</li>
       </ul>
       <div class="btns">
         <a class="btn btn-dark" href="#contact">Let's talk {ARR}</a>
