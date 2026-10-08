@@ -16,7 +16,17 @@
   };
   const NEW = window.NEW_WORKS || {};
   const HIDE = window.HIDDEN_WORKS || [];
-  const CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: [...(NEW[s.id] || []), ...s.frames.map((f) => f[0])].filter((id) => !HIDE.includes(id)) }));
+  const TITLES = window.V2_TITLES || {};
+  let CATS = window.PORTFOLIO.map((s) => ({ id: s.id, title: TITLES[s.id] || clean(s.title), note: s.note, blurb: BLURB[s.id] || s.note, ids: [...(NEW[s.id] || []), ...s.frames.map((f) => f[0])].filter((id) => !HIDE.includes(id)) }));
+  if (window.V2_ORDER) {
+    // Strongest work first: reorder categories, then pieces (anything not listed keeps its place at the end).
+    const byId = Object.fromEntries(CATS.map((c) => [c.id, c]));
+    CATS = window.V2_ORDER.filter(([id]) => byId[id]).map(([id, order]) => {
+      const c = byId[id];
+      c.ids = [...order.filter((x) => c.ids.includes(x)), ...c.ids.filter((x) => !order.includes(x))];
+      return c;
+    }).concat(CATS.filter((c) => !window.V2_ORDER.some(([id]) => id === c.id)));
+  }
   const CAT_OF = {};
   CATS.forEach((c) => c.ids.forEach((id) => { CAT_OF[id] = c.title; }));
   const ALL = CATS.flatMap((c) => c.ids);
@@ -68,6 +78,7 @@
       img.loading = opts.eager ? "eager" : "lazy"; img.decoding = "async"; img.alt = "";
       img.src = url(w.src);
       b.append(img);
+      if (!opts.bare) b.insertAdjacentHTML("beforeend", `<span class="zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></span>`);
     }
     b.addEventListener("click", () => Lightbox.open(list, list.indexOf(id), b));
     return b;
@@ -97,6 +108,15 @@
     el.dataset.pieces.split(",").forEach((id) => el.append(tile(id, list, { eager: el.hasAttribute("data-eager"), autoplay: el.hasAttribute("data-autoplay"), bare: el.hasAttribute("data-bare") })));
   });
 
+  document.querySelectorAll(".marquee").forEach((m) => {
+    const items = (window.CLIENTS || []).map((c) => c.img
+      ? `<li><img src="${url(c.img)}" alt="${c.name}" loading="lazy"></li>`
+      : `<li class="word">${c.text}</li>`).join("");
+    // Two copies side by side make the loop seamless; the copy is hidden from screen readers.
+    m.innerHTML = `<ul class="mq-track">${items}</ul><ul class="mq-track" aria-hidden="true">${items}</ul>`;
+  });
+  const ai = $("#ai-tools");
+  if (ai) ai.innerHTML = (window.AI_TOOLS || []).map((t) => `<li>${t}</li>`).join("");
   const logos = $("#logos");
   if (logos) logos.innerHTML = window.CLIENT_LOGOS.map((p) => `<li><img src="${url(p)}" alt="Client logo" loading="lazy"></li>`).join("");
   document.querySelectorAll(".tool-icons").forEach((t) => { t.innerHTML = window.TOOL_ICONS.map((p) => `<li><img src="${url(p)}" alt="" loading="lazy" width="40" height="40"></li>`).join(""); });
@@ -161,7 +181,7 @@
     const btn = (id, label, n) => {
       const b = document.createElement("button");
       b.type = "button"; b.className = "chip-btn"; b.dataset.id = id;
-      b.innerHTML = `${label}<sup>${n}</sup>`;
+      b.textContent = label;
       b.addEventListener("click", () => { only = id; history.replaceState(null, "", id === "all" ? location.pathname : "#" + id); render(); });
       filters.append(b);
     };
@@ -174,7 +194,7 @@
       workList.replaceChildren(...CATS.filter((c) => only === "all" || c.id === only).map((c) => {
         const s = document.createElement("section");
         s.className = "work-sec"; s.id = "sec-" + c.id;
-        s.innerHTML = `<div class="work-sec-head"><div><h2 class="h3">${c.title}</h2><p>${c.blurb}</p></div><span class="count">${c.ids.length} pieces</span></div><div class="mason"></div>`;
+        s.innerHTML = `<div class="work-sec-head"><h3 class="h3">${c.title}</h3><p>${c.blurb}</p></div><div class="mason"></div>`;
         const m = $(".mason", s);
         mason(m, c.ids, visible(), cols);
         masons.push({ el: m, ids: () => c.ids, list: visible, cols });
@@ -182,6 +202,30 @@
       }));
     }
     render();
+    // Links like work.html#motion-graphics open that discipline and jump to it.
+    if (only !== "all") requestAnimationFrame(() => $("#all").scrollIntoView());
+  }
+
+  /* ---------- Featured projects (work page) ---------- */
+  const cases = $("#cases");
+  if (cases) {
+    const list = (window.CASES || []).map((c) => c.id);
+    (window.CASES || []).forEach((c, k) => {
+      const a = document.createElement("article");
+      a.className = "case" + (W[c.id].ratio < 1 ? " tall" : "") + (k % 2 ? " flip" : "");
+      a.innerHTML = `<div class="case-media"></div>
+        <div class="case-copy">
+          <span class="eyebrow">${c.client}</span>
+          <h3 class="h3">${c.title}</h3>
+          <p>${c.summary}</p>
+          <dl class="case-facts">${c.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
+          <button type="button" class="tlink case-play">Watch the film ${'<span class="arr" aria-hidden="true">→</span>'}</button>
+        </div>`;
+      const t = tile(c.id, list);
+      $(".case-media", a).append(t);
+      $(".case-play", a).addEventListener("click", () => t.click());
+      cases.append(a);
+    });
   }
 
   /* ---------- Lightbox ---------- */

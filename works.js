@@ -101,3 +101,40 @@ window.NEW_WORKS = { "motion-graphics": ["lw1", "sr1"] };
 /* Pieces taken off the v2 site (still listed above so the Canva-layout pages keep their shape):
    m3 Remi release clip, m4 altcoin, m5 Schedify teaser, m7 Remi landscape film. */
 window.HIDDEN_WORKS = ["m3", "m4", "m5", "m7"];
+
+/* ---------- v2 site settings ---------- */
+/* Strongest work first: category order, then piece order inside each category. */
+window.V2_ORDER = [
+  ["motion-graphics", ["lw1", "sr1", "m2", "m6", "m1", "m8"]],
+  ["3d-product-animation", ["pa3", "pa1", "pa2", "pa4"]],
+  ["3d-product-design", ["p5", "p4", "p3", "p1", "p2"]],
+  ["3d-visualization", ["v3", "v1", "v4", "v5", "v2"]],
+  ["graphics-design", ["g3", "g1", "g2", "g4"]],
+  ["illustration", ["i2", "i4", "i3", "i1", "i5"]]
+];
+window.V2_TITLES = { "graphics-design": "Graphic Design", "motion-graphics": "Motion Graphics" };
+
+/* Featured projects on the Work page. Facts only: add the brief and results when available. */
+window.CASES = [
+  { id: "lw1", client: "Loopwise", title: "A launch film for a SaaS tool that closes every loop",
+    summary: "A 20-second launch film: a kinetic-type opening, the logo reveal, animated product UI showing the tool at work, and a clean end card.",
+    facts: [["Format", "16:9 film"], ["Length", "20 seconds"], ["Deliverable", "SaaS launch video"], ["Role", "Motion design & animation"]] },
+  { id: "sr1", client: "Story Roll", title: "A welcome video that shows new users what the app does in 15 seconds",
+    summary: "A vertical first-use video that walks through the photo roll, moments and memory-recap screens, then ends on a clear call to try it.",
+    facts: [["Format", "9:16 vertical"], ["Length", "15 seconds"], ["Deliverable", "In-app welcome video"], ["Role", "Motion design & animation"]] },
+  { id: "m2", client: "Remi", title: "A brand film about turning moments into stories",
+    summary: "A vertical brand film that moves from photos and memories to Remi's promise, ending on the app's welcome screen.",
+    facts: [["Format", "9:16 vertical"], ["Length", "43 seconds"], ["Deliverable", "Brand film"], ["Role", "Motion design & animation"]] }
+];
+
+/* Client strip, most recognisable first. Text entries show until logo files are added. */
+window.CLIENTS = [
+  { text: "YouTube" }, { text: "Google Gemini" }, { text: "Google for Startups" },
+  { img: "media/fa371bc5b47ad61936281e5c776d29ca.png", name: "Shotstack" },
+  { img: "media/f0c255c817b42fe8b2a6dfabb900338e.svg", name: "Lenco" },
+  { img: "media/cda8aca2d9626228318d3ccc2e7cc72b.png", name: "PaywithAccount" },
+  { img: "media/fae87f258474cd6bee9e0c2b0d6209da.png", name: "Rubix" },
+  { img: "media/4cbae8ea3cc8525632dcff64f9fc8aa6.png", name: "SALG" },
+  { img: "media/ff3e706cac420628fbbd872221351aad.png", name: "medcob" }
+];
+window.AI_TOOLS = ["Midjourney", "Adobe Firefly", "Claude"];
