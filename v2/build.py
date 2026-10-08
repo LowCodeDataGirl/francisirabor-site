@@ -142,7 +142,7 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
   <section class="hero center">
     <div class="dots" aria-hidden="true"></div>
     <div class="wrap">
-      <h1 class="h1">Animation and design<br>that drives {mark("engagement")}</h1>
+      <h1 class="h1">Animation and design<br class="br-d"> that drives {mark("engagement")}</h1>
       <p class="lede">I'm Francis Irabor, a designer and animator creating 3D product visuals, motion graphics and illustration for brands.</p>
       <div class="hero-cta"><a class="btn btn-dark" href="work.html">See my work {ARR}</a></div>
       <p class="hero-note">Click any piece to watch it full screen</p>
@@ -169,7 +169,7 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
 
   <section class="intro center" aria-labelledby="intro-h">
     <div class="wrap">
-      <h2 id="intro-h" class="h2">Built to be seen, {mark("trusted")} by the brands<br>that ship it</h2>
+      <h2 id="intro-h" class="h2">Built to be seen, {mark("trusted")} by the brands<br class="br-d"> that ship it</h2>
       <p class="lede">From a single product render to a full launch campaign, every piece is made to stop the scroll and say something about the brand.</p>
     </div>
   </section>
@@ -203,7 +203,7 @@ index = head("Francis Irabor — Designer & Animator", "Francis Irabor is a desi
         <div class="tabs" id="tabs" role="tablist" aria-label="Disciplines"></div>
         <div class="sc-stage" id="sc-stage">
           <div class="mason" id="sc-mason"></div>
-          <a class="btn btn-line btn-sm more" id="sc-more" href="work.html">See all <span>work</span> {ARR}</a>
+          <a class="btn btn-line btn-sm more" id="sc-more" href="work.html">See all&nbsp;<span>work</span> {ARR}</a>
         </div>
       </div>
     </div>

@@ -115,6 +115,8 @@
       mason(grid, curCat().ids, curCat().ids, cols);
       more.href = "work.html#" + cur;
       more.querySelector("span").textContent = curCat().title;
+      const sel = $("#tab-" + cur);
+      if (tabs.scrollWidth > tabs.clientWidth) tabs.scrollLeft = sel.offsetLeft - tabs.offsetLeft - 16;
     }
     masons.push({ el: grid, ids: () => curCat().ids, list: () => curCat().ids, cols });
     render();
@@ -125,16 +127,21 @@
   if (wall) {
     const imgs = ALL.filter((id) => W[id].type === "image");
     const half = Math.ceil(imgs.length / 2);
-    [imgs.slice(0, half), imgs.slice(half)].forEach((set, i) => {
-      const lane = document.createElement("div");
-      lane.className = "lane" + (i ? " rev" : "");
-      [...set, ...set].forEach((id, k) => {
-        const t = tile(id, imgs);
-        if (k >= set.length) { t.setAttribute("aria-hidden", "true"); t.tabIndex = -1; }
-        lane.append(t);
+    // Built when the wall comes near the screen; images load right away so the moving lanes never show blanks.
+    const build = () => {
+      [imgs.slice(0, half), imgs.slice(half)].forEach((set, i) => {
+        const lane = document.createElement("div");
+        lane.className = "lane" + (i ? " rev" : "");
+        [...set, ...set].forEach((id, k) => {
+          const t = tile(id, imgs, { eager: true });
+          if (k >= set.length) { t.setAttribute("aria-hidden", "true"); t.tabIndex = -1; }
+          lane.append(t);
+        });
+        wall.append(lane);
       });
-      wall.append(lane);
-    });
+    };
+    const wio = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { wio.disconnect(); build(); } }, { rootMargin: "800px 0px" });
+    wio.observe(wall);
   }
 
   /* ---------- Work page: filters + sections ---------- */
