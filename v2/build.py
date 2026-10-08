@@ -252,7 +252,7 @@ about = head("About — Francis Irabor", "About Francis Irabor, a designer and a
     </div>
   </section>
   <section class="wrap about-grid" aria-label="About Francis">
-    <div class="about-photo"><img data-asset="media/d3cc3a8931e93b3ef50e0372a1a22fde.jpg" alt="Portrait of Francis Irabor"></div>
+    <figure class="about-photo"><img data-asset="media/francis-headshot.jpg" alt="Portrait of Francis Irabor" width="960" height="1200"><figcaption>Photo: Gracelight</figcaption></figure>
     <div class="about-copy">
       <h2 class="h2">Designer &amp; animator</h2>
       <p>I specialize in design and animation. I have worked with clients in various industries such as finance, publishing, fashion, music, arts, culture, tech and marketing.</p>
