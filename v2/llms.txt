@@ -5,7 +5,7 @@
 ## Pages
 - [Home](https://francisirabor.com/): overview, selected work, process and contact
 - [Work](https://francisirabor.com/work.html): featured projects and the full portfolio by discipline
-- [Services](https://francisirabor.com/services.html): motion graphics, 3D product design and animation, 3D visualization, brand and graphic design, illustration
+- [Case studies](https://francisirabor.com/case-studies.html): selected projects with the brief, approach and outcome
 - [About](https://francisirabor.com/about.html): background, what he brings to a team, availability
 
 ## Contact

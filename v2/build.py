@@ -60,7 +60,7 @@ def head(title, desc):
 '''
 
 def header(cur):
-    links = [("Work", "work.html"), ("Services", "services.html"), ("About", "about.html")]
+    links = [("Work", "work.html"), ("Case studies", "case-studies.html"), ("About", "about.html")]
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if n == cur else ""}>{n}</a>' for n, h in links)
     return f'''<header class="top">
   <div class="wrap top-in">
@@ -135,7 +135,6 @@ STEPS = f'''  <section class="process" id="process" aria-labelledby="process-h">
       </ol>
       <div class="toolkit">
         <div class="tk-group"><span class="tk-label">Toolkit</span><ul class="tool-icons"></ul></div>
-        <div class="tk-group"><span class="tk-label">AI in the workflow</span><ul class="ai-chips" id="ai-tools"></ul></div>
       </div>
     </div>
   </section>
@@ -151,7 +150,6 @@ def closer(wall=False):
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
       </div>
       <p class="avail"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles · Clients across the US, UK, Canada and Australia</p>
-      <p class="mail"><span>{MAIL}</span> · <a href="{LI}" target="_blank" rel="noopener">LinkedIn</a> · <a href="{UP}" target="_blank" rel="noopener">Upwork</a></p>
     </div>
     {'<div class="wall" id="wall"></div>' if wall else ''}
   </section>
@@ -165,7 +163,7 @@ FOOT = f'''<footer class="foot">
         <p class="blurb">{POSITION}</p>
       </div>
       <div><h4>Work</h4><ul><li><a href="work.html#motion-graphics">Motion graphics</a></li><li><a href="work.html#3d-product-animation">3D product animation</a></li><li><a href="work.html#3d-product-design">3D product design</a></li><li><a href="work.html#3d-visualization">3D visualization</a></li><li><a href="work.html#graphics-design">Graphic design</a></li><li><a href="work.html#illustration">Illustration</a></li></ul></div>
-      <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="{CV}" target="_blank" rel="noopener">CV</a></li></ul></div>
+      <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="about.html">About</a></li><li><a href="{CV}" target="_blank" rel="noopener">CV</a></li></ul></div>
       <div><h4>Connect</h4><ul><li><a href="{TALK}">Email</a></li><li><a href="{LI}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="{UP}" target="_blank" rel="noopener">Upwork</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© <span id="yr"></span> Francis Irabor</span><a href="#top-anchor">Back to top ↑</a></div>
@@ -279,7 +277,6 @@ index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION) + heade
         <li>3D product design</li><li>3D visualization &amp; product animation</li><li>Motion graphics animation</li><li>2D &amp; 3D animation</li>
         <li>Brand identity</li><li>Graphic design</li><li>Print &amp; poster design</li><li>Illustration</li>
       </ul>
-      <a class="tlink" href="services.html">Explore services {ARR}</a>
     </div>
   </section>
 
@@ -300,17 +297,9 @@ work = head("Work — Francis Irabor", "The portfolio of Francis Irabor: motion 
     </div>
   </section>
 
-  <section class="cases" aria-labelledby="cases-h">
+  <section class="all-work" id="all" aria-label="All work">
     <div class="wrap">
-      <div class="sec-row"><h2 id="cases-h" class="h2">Featured projects</h2></div>
-      <div id="cases"></div>
-    </div>
-  </section>
-
-  <section class="all-work" id="all" aria-labelledby="all-h">
-    <div class="wrap">
-      <div class="sec-row"><h2 id="all-h" class="h2">All work</h2></div>
-      <div class="filters" id="filters" aria-label="Filter by discipline"></div>
+            <div class="filters" id="filters" aria-label="Filter by discipline"></div>
       <div class="work-list" id="work-list"></div>
     </div>
   </section>
@@ -377,12 +366,6 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
       <p class="big">A great product still has to earn a few seconds of attention. That is the job I do.</p>
       <p>I'm Francis Irabor, a designer and animator. I turn products, apps and ideas into motion, 3D and design that people stop for, understand quickly and remember, whether that's a 15-second app welcome video, a launch film or a full campaign.</p>
       <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, for clients in the US, UK, Canada and Australia, both on contract and in remote full-time roles. I'm open to both.</p>
-      <ul class="facts">
-        <li><b>What I make</b>Motion graphics, 3D product visuals, brand and graphic design, illustration</li>
-        <li><b>Industries</b>Tech, finance, publishing, fashion, music, arts and culture</li>
-        <li><b>Open to</b>Freelance projects and full-time roles</li>
-        <li><b>Clients in</b>The US, UK, Canada and Australia, on contract and full-time</li>
-      </ul>
       <div class="btns">
         <a class="btn btn-dark" href="#contact">Let's talk {ARR}</a>
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
@@ -405,7 +388,22 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
 
 ''' + FOOT
 
-for name, html in [("index.html", index), ("work.html", work), ("services.html", services), ("about.html", about)]:
+# ---------------- Case studies ----------------
+case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: the brief, the approach and the result behind selected motion design, 3D and experiential projects.") + header("Case studies") + f'''
+<main>
+  <section class="page-head center">
+    <div class="dots" aria-hidden="true"></div>
+    <div class="wrap">
+      <h1 class="h1">Case {mark("studies")}</h1>
+      <p class="lede">The brief, the approach and the result behind selected projects.</p>
+    </div>
+  </section>
+  <div id="case-list"></div>
+{closer(False)}</main>
+
+''' + FOOT
+
+for name, html in [("index.html", index), ("work.html", work), ("case-studies.html", case_studies), ("about.html", about)]:
     open(name, "w").write(html)
 
 # Files that help search engines and AI agents understand the site.
@@ -416,7 +414,7 @@ open("llms.txt", "w").write(f"""# Francis Irabor
 ## Pages
 - [Home]({SITE}): overview, selected work, process and contact
 - [Work]({SITE}work.html): featured projects and the full portfolio by discipline
-- [Services]({SITE}services.html): motion graphics, 3D product design and animation, 3D visualization, brand and graphic design, illustration
+- [Case studies]({SITE}case-studies.html): selected projects with the brief, approach and outcome
 - [About]({SITE}about.html): background, what he brings to a team, availability
 
 ## Contact
@@ -427,5 +425,5 @@ open("llms.txt", "w").write(f"""# Francis Irabor
 """)
 open("robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
 open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["", "work.html", "services.html", "about.html"]) + "</urlset>\n")
+    "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["", "work.html", "case-studies.html", "about.html"]) + "</urlset>\n")
 print("built")

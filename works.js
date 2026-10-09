@@ -116,10 +116,10 @@ window.V2_TITLES = { "graphics-design": "Graphic Design", "motion-graphics": "Mo
 
 /* Featured projects on the Work page. Facts only: add the brief and results when available. */
 window.CASES = [
-  { id: "lw1", client: "Loopwise", title: "A launch film for a SaaS tool that closes every loop",
+  { id: "lw1", client: "Loopwise", type: "SaaS product promo · UI motion design", title: "A launch film for a SaaS tool that closes every loop",
     summary: "A 20-second launch film: a kinetic-type opening, the logo reveal, animated product UI showing the tool at work, and a clean end card.",
     facts: [["Format", "16:9 film"], ["Length", "20 seconds"], ["Deliverable", "SaaS launch video"], ["Role", "Motion design & animation"]] },
-  { id: "sr1", client: "Story Roll", title: "A welcome video that shows new users what the app does in 15 seconds",
+  { id: "sr1", client: "Story Roll", type: "Mobile app onboarding video · UI animation", title: "A welcome video that shows new users what the app does in 15 seconds",
     summary: "A vertical first-use video that walks through the photo roll, moments and memory-recap screens, then ends on a clear call to try it.",
     facts: [["Format", "9:16 vertical"], ["Length", "15 seconds"], ["Deliverable", "In-app welcome video"], ["Role", "Motion design & animation"]] },
   { id: "m2", client: "Remi", title: "A brand film about turning moments into stories",
@@ -127,14 +127,20 @@ window.CASES = [
     facts: [["Format", "9:16 vertical"], ["Length", "43 seconds"], ["Deliverable", "Brand film"], ["Role", "Motion design & animation"]] }
 ];
 
-/* Client strip, most recognisable first. Icon + name entries use brand marks from the Simple Icons library. */
+/* Case studies page: ids from CASES above, in order. Optional per case: brief, approach, result (arrays of paragraphs). */
+window.CASE_STUDIES = ["lw1", "sr1"];
+
+/* Client strip, most recognisable first, in full colour (dark ink turned white for the black band). */
 window.CLIENTS = [
-  { icon: "media/brand-youtube.svg", text: "YouTube" }, { icon: "media/brand-gemini.svg", text: "Google Gemini" }, { icon: "media/brand-google.svg", text: "Google for Startups" },
-  { img: "media/fa371bc5b47ad61936281e5c776d29ca.png", name: "Shotstack" },
-  { img: "media/f0c255c817b42fe8b2a6dfabb900338e.svg", name: "Lenco" },
-  { img: "media/cda8aca2d9626228318d3ccc2e7cc72b.png", name: "PaywithAccount" },
-  { img: "media/fae87f258474cd6bee9e0c2b0d6209da.png", name: "Rubix" },
-  { img: "media/4cbae8ea3cc8525632dcff64f9fc8aa6.png", name: "SALG" },
-  { img: "media/ff3e706cac420628fbbd872221351aad.png", name: "medcob" }
+  { icon: "media/client-youtube.svg", text: "YouTube" },
+  { icon: "media/client-gemini.svg", text: "Google Gemini" },
+  { img: "media/client-google.png", name: "Google", text: "for Startups" },
+  { img: "media/client-shotstack.png", name: "Shotstack" },
+  { img: "media/client-lenco.svg", name: "Lenco" },
+  { img: "media/client-paywithaccount.png", name: "PaywithAccount" },
+  { img: "media/client-rubix.png", name: "Rubix" },
+  { img: "media/client-salg.png", name: "SALG" },
+  { img: "media/client-medcob.png", name: "medcob" }
 ];
-window.AI_TOOLS = ["Midjourney", "Adobe Firefly", "Claude"];
+/* AI tools shown in the toolkit alongside the design apps. */
+window.AI_TOOL_ICONS = ["media/tool-claude.svg", "media/tool-midjourney.svg", "media/tool-firefly.svg"];

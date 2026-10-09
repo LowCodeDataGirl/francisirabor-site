@@ -110,8 +110,8 @@
 
   document.querySelectorAll(".marquee").forEach((m) => {
     const items = (window.CLIENTS || []).map((c) => c.img
-      ? `<li><img src="${url(c.img)}" alt="${c.name}" loading="lazy"></li>`
-      : `<li class="word">${c.icon ? `<img class="ico" src="${url(c.icon)}" alt="">` : ""}${c.text}</li>`).join("");
+      ? `<li class="${c.text ? "word" : ""}"><img src="${url(c.img)}" alt="${c.name}" loading="lazy">${c.text || ""}</li>`
+      : `<li class="word"><img class="ico" src="${url(c.icon)}" alt="">${c.text}</li>`).join("");
     // Two copies side by side make the loop seamless; the copy is hidden from screen readers.
     m.innerHTML = `<ul class="mq-track">${items}</ul><ul class="mq-track" aria-hidden="true">${items}</ul>`;
   });
@@ -119,7 +119,7 @@
   if (ai) ai.innerHTML = (window.AI_TOOLS || []).map((t) => `<li>${t}</li>`).join("");
   const logos = $("#logos");
   if (logos) logos.innerHTML = window.CLIENT_LOGOS.map((p) => `<li><img src="${url(p)}" alt="Client logo" loading="lazy"></li>`).join("");
-  document.querySelectorAll(".tool-icons").forEach((t) => { t.innerHTML = window.TOOL_ICONS.map((p) => `<li><img src="${url(p)}" alt="" loading="lazy" width="40" height="40"></li>`).join(""); });
+  document.querySelectorAll(".tool-icons").forEach((t) => { t.innerHTML = [...window.TOOL_ICONS, ...(window.AI_TOOL_ICONS || [])].map((p) => `<li><img src="${url(p)}" alt="" loading="lazy" width="40" height="40"></li>`).join(""); });
 
   /* ---------- Dark tabbed portfolio (home) ---------- */
   const tabs = $("#tabs");
@@ -225,6 +225,32 @@
       $(".case-media", a).append(t);
       $(".case-play", a).addEventListener("click", () => t.click());
       cases.append(a);
+    });
+  }
+
+  /* ---------- Case studies page ---------- */
+  const csList = $("#case-list");
+  if (csList) {
+    const byId = Object.fromEntries((window.CASES || []).map((c) => [c.id, c]));
+    const ids = (window.CASE_STUDIES || []).filter((id) => byId[id]);
+    ids.forEach((id, k) => {
+      const c = byId[id];
+      const s = document.createElement("section");
+      s.className = "cs" + (k % 2 ? " alt" : "");
+      s.id = "cs-" + id;
+      const block = (label, paras) => paras && paras.length ? `<div class="cs-block"><h3 class="label">${label}</h3>${paras.map((p) => `<p>${p}</p>`).join("")}</div>` : "";
+      s.innerHTML = `<div class="wrap">
+          <div class="cs-head"><span class="eyebrow">${c.client}${c.type ? ` · ${c.type}` : ""}</span><h2 class="h2">${c.title}</h2><p class="lede">${c.summary}</p></div>
+          <div class="cs-body ${W[id].ratio < 1 ? "tall" : ""}">
+            <div class="cs-media"></div>
+            <div class="cs-side">
+              <dl class="case-facts">${c.facts.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl>
+              ${block("The brief", c.brief)}${block("The approach", c.approach)}${block("The result", c.result)}
+            </div>
+          </div>
+        </div>`;
+      $(".cs-media", s).append(tile(id, ids));
+      csList.append(s);
     });
   }
 
