@@ -40,7 +40,7 @@ PERSON = {
 
 SITEJSON = {"@context": "https://schema.org", "@type": "WebSite", "name": "Francis Irabor", "url": SITE,
             "description": POSITION, "author": {"@type": "Person", "name": "Francis Irabor"}}
-OG = SITE + "assets/media/og-francis-irabor.jpg"
+OG = SITE + "assets/media/og-francis-irabor-photo.jpg"
 
 def head(title, desc, path=""):
     canon = SITE + path
