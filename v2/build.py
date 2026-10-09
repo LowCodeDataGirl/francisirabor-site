@@ -10,8 +10,7 @@ TALK = f"mailto:{MAIL}?subject=Let%27s%20talk"
 
 # One sentence that says who he is, for people, search engines and AI agents alike.
 POSITION = ("Francis Irabor is a motion designer and 3D artist who creates launch films, product visuals "
-            "and social content for tech and consumer brands. He has worked with clients in the US, UK, Canada "
-            "and Australia, both on contract and in remote full-time roles, and is open to new freelance projects "
+            "and social content for tech and consumer brands. He has worked with clients worldwide, both on contract and in remote full-time roles, and is open to new freelance projects "
             "and full-time positions.")
 
 MARK = '<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 C 45 3, 95 2, 135 5 S 185 10, 197 4"/></svg>'
@@ -40,7 +39,7 @@ PERSON = {
 
 SITEJSON = {"@context": "https://schema.org", "@type": "WebSite", "name": "Francis Irabor", "url": SITE,
             "description": POSITION, "author": {"@type": "Person", "name": "Francis Irabor"}}
-OG = SITE + "assets/media/og-francis-irabor-photo.jpg"
+OG = SITE + "assets/media/og-francis-irabor-share.jpg"
 
 def head(title, desc, path=""):
     canon = SITE + path
@@ -173,7 +172,7 @@ def closer(wall=False):
         <a class="btn btn-dark" href="{TALK}">Let's talk {ARR}</a>
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
       </div>
-      <p class="avail"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles · Clients across the US, UK, Canada and Australia</p>
+      <p class="avail"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles · Working with clients worldwide</p>
     </div>
     {'<div class="wall" id="wall"></div>' if wall else ''}
   </section>
@@ -390,7 +389,7 @@ about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "
     <div class="about-copy">
       <p class="big">A great product still has to earn a few seconds of attention. That is the job I do.</p>
       <p>I'm Francis Irabor, a designer and animator. I turn products, apps and ideas into motion, 3D and design that people stop for, understand quickly and remember, whether that's a 15-second app welcome video, a launch film or a full campaign.</p>
-      <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, for clients in the US, UK, Canada and Australia, both on contract and in remote full-time roles. I'm open to both.</p>
+      <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, for clients worldwide, both on contract and in remote full-time roles. I'm open to both.</p>
       <div class="btns">
         <a class="btn btn-dark" href="#contact">Let's talk {ARR}</a>
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
