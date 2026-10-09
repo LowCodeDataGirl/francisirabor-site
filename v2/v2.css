@@ -527,3 +527,22 @@ body.lb-open { overflow: hidden; }
 .spec .stamp { top: 12px; right: 12px; }
 @media (max-width: 860px) { .spec .panel { height: 300px; } }
 .spec { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+/* =========================================================
+   Round 6: hero cut line (uxfol.io style) + white logo strip
+   ========================================================= */
+.hero.center { border-bottom: 1px solid var(--line); }
+.fan.ig {
+  align-items: flex-start; padding-bottom: 0; margin-bottom: 0;
+  height: clamp(260px, 37vw, 380px);
+  /* clip only the bottom edge so the posts look like they sit inside the hero */
+  clip-path: inset(-80px -80px 0 -80px);
+}
+.ig-card.side.l { transform: rotate(-5deg) translateX(18px) translateY(64px); }
+.ig-card.side.r { transform: rotate(5deg) translateX(-18px) translateY(64px); }
+@media (max-width: 760px) {
+  .fan.ig { height: calc((min(100vw, 460px) - 32px) * .5625 + 86px); }
+}
+
+.band { background: var(--paper); padding-block: 44px 40px; }
+.mq-track .word { color: var(--ink); opacity: 1; }
