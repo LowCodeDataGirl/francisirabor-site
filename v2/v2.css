@@ -612,3 +612,9 @@ body.lb-open { overflow: hidden; }
 .csx-mid.tall .csx-hero, .csx-mid.tall .csx-approach { margin: 0; }
 @media (max-width: 860px) { .csx-mid.tall { grid-template-columns: 1fr; } }
 .csx-details { margin-top: 32px; }
+
+/* Round 8: illustrated mark, name above the hero headline */
+.logo-mark { width: 34px; height: 34px; border-radius: 9px; overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.logo-mark img { width: 100%; height: 100%; display: block; }
+.hero-who { margin: 0 0 18px; }
+.ig-av { overflow: hidden; background: #fff; } .ig-av img { width: 100%; height: 100%; display: block; }

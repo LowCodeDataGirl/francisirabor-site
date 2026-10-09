@@ -31,11 +31,19 @@ PERSON = {
   "description": POSITION,
   "knowsAbout": ["Motion graphics", "2D and 3D animation", "3D product design", "3D product animation",
                  "3D visualization", "Brand identity", "Graphic design", "Illustration", "Launch videos", "Social media content"],
+  "image": SITE + "assets/media/francis-headshot.jpg",
+  "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"},
+  "worksFor": {"@type": "Organization", "name": "Ruffbox Studio"},
   "sameAs": [LI, UP],
   "seeks": {"@type": "Demand", "description": "Freelance projects and full-time design or motion roles, remote"},
 }
 
-def head(title, desc):
+SITEJSON = {"@context": "https://schema.org", "@type": "WebSite", "name": "Francis Irabor", "url": SITE,
+            "description": POSITION, "author": {"@type": "Person", "name": "Francis Irabor"}}
+OG = SITE + "assets/media/og-francis-irabor.jpg"
+
+def head(title, desc, path=""):
+    canon = SITE + path
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -43,13 +51,29 @@ def head(title, desc):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Francis Irabor">
+<meta name="theme-color" content="#fefefe">
+<link rel="canonical" href="{canon}">
+<link rel="icon" href="../assets/media/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/media/francis-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/media/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="{"profile" if path in ("", "about.html") else "website"}">
+<meta property="og:site_name" content="Francis Irabor">
+<meta property="og:url" content="{canon}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="../assets/media/loopwise-saas-launch.jpg">
+<meta property="og:image" content="{OG}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Francis Irabor, motion designer and 3D artist">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{OG}">
 <script type="application/ld+json">{json.dumps(PERSON)}</script>
+<script type="application/ld+json">{json.dumps(SITEJSON)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
@@ -64,7 +88,7 @@ def header(cur):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if n == cur else ""}>{n}</a>' for n, h in links)
     return f'''<header class="top">
   <div class="wrap top-in">
-    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">FI</span>Francis Irabor</a>
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><img src="../assets/media/francis-mark.svg" alt="" width="34" height="34"></span>Francis Irabor</a>
     <nav class="nav" aria-label="Main">{nav}</nav>
     <div class="top-cta">
       <a class="btn btn-line btn-sm" href="{CV}" target="_blank" rel="noopener">View CV</a>
@@ -108,7 +132,7 @@ STEPS = f'''  <section class="process" id="process" aria-labelledby="process-h">
         </li>
         <li class="step">
           <div class="viz viz-frames" aria-hidden="true">
-            <img data-asset="media/loopwise-saas-launch.jpg" alt=""><img class="pick" data-asset="media/story-roll-welcome.jpg" alt=""><img data-asset="media/82478ac93bde5bc2c4594977b5599de2.png" alt="">
+            <img data-asset="media/w/loopwise-saas-launch-poster.webp" loading="lazy" alt=""><img class="pick" data-asset="media/w/story-roll-welcome-poster.webp" loading="lazy" alt=""><img data-asset="media/w/82478ac93bde5bc2c4594977b5599de2-sm.webp" loading="lazy" alt="">
           </div>
           <span class="eyebrow">02 · Direction</span>
           <h3>You pick the look</h3>
@@ -159,7 +183,7 @@ FOOT = f'''<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">FI</span>Francis Irabor</a>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><img src="../assets/media/francis-mark.svg" alt="" width="34" height="34"></span>Francis Irabor</a>
         <p class="blurb">{POSITION}</p>
       </div>
       <div><h4>Work</h4><ul><li><a href="work.html#motion-graphics">Motion graphics</a></li><li><a href="work.html#3d-product-animation">3D product animation</a></li><li><a href="work.html#3d-product-design">3D product design</a></li><li><a href="work.html#3d-visualization">3D visualization</a></li><li><a href="work.html#graphics-design">Graphic design</a></li><li><a href="work.html#illustration">Illustration</a></li></ul></div>
@@ -225,11 +249,12 @@ SPECS = [
 ]
 
 # ---------------- Home ----------------
-index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION) + header("") + f'''
+index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION, "") + header("") + f'''
 <main>
   <section class="hero center">
     <div class="dots" aria-hidden="true"></div>
     <div class="wrap">
+      <p class="eyebrow hero-who">Francis Irabor · Motion designer &amp; 3D artist</p>
       <h1 class="h1">Animation and design<br class="br-d"> that drives {mark("engagement")}</h1>
       <p class="lede">Launch films, 3D product visuals and campaign design that help brands get noticed, get understood and get remembered.</p>
       <div class="hero-cta">
@@ -239,17 +264,17 @@ index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION) + heade
       <p class="hero-note"><span class="dot" aria-hidden="true"></span>Open to freelance projects and full-time roles</p>
       <div class="fan ig" aria-label="Recent work, shown as social posts">
         <article class="ig-card side l">
-          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Story Roll · Welcome video</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <header class="ig-head"><span class="ig-av" aria-hidden="true"><img src="../assets/media/francis-icon.svg" alt="" width="32" height="32"></span><div><b>Francis Irabor</b><small>Story Roll · Welcome video</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
           <div class="ig-media reel" data-pieces="sr1" data-group="hero" data-autoplay data-bare><span class="ig-badge" aria-hidden="true">{REEL}</span></div>
         </article>
         <article class="ig-card main">
-          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Loopwise · SaaS launch film</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <header class="ig-head"><span class="ig-av" aria-hidden="true"><img src="../assets/media/francis-icon.svg" alt="" width="32" height="32"></span><div><b>Francis Irabor</b><small>Loopwise · SaaS launch film</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
           <div class="ig-media" data-pieces="lw1" data-group="hero" data-autoplay data-bare><span class="ig-sound" aria-hidden="true"></span></div>
           <div class="ig-actions" aria-hidden="true">{HEART}{COMMENT}{SEND}<span class="sp"></span>{SAVE}</div>
           <p class="ig-cap"><b>Francis Irabor</b> Meet Loopwise. A 20-second SaaS launch film: logo reveal, product UI and end card. <span>#motiondesign #saas #launchfilm</span></p>
         </article>
         <article class="ig-card side r">
-          <header class="ig-head"><span class="ig-av" aria-hidden="true">FI</span><div><b>Francis Irabor</b><small>Post · Graphic design</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
+          <header class="ig-head"><span class="ig-av" aria-hidden="true"><img src="../assets/media/francis-icon.svg" alt="" width="32" height="32"></span><div><b>Francis Irabor</b><small>Post · Graphic design</small></div><span class="ig-more" aria-hidden="true">•••</span></header>
           <div class="ig-media" data-pieces="g2" data-group="hero" data-eager></div>
           <div class="ig-actions" aria-hidden="true">{HEART}{COMMENT}{SEND}<span class="sp"></span>{SAVE}</div>
         </article>
@@ -287,7 +312,7 @@ index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION) + heade
 ''' + FOOT
 
 # ---------------- Work ----------------
-work = head("Work — Francis Irabor", "The portfolio of Francis Irabor: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.") + header("Work") + f'''
+work = head("Work — Francis Irabor", "The portfolio of Francis Irabor: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.", "work.html") + header("Work") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -351,7 +376,7 @@ services = head("Services — Francis Irabor", "Services from Francis Irabor: mo
 ''' + FOOT
 
 # ---------------- About ----------------
-about = head("About — Francis Irabor", POSITION) + header("About") + f'''
+about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "about.html") + header("About") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -361,7 +386,7 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
     </div>
   </section>
   <section class="wrap about-grid" aria-label="About Francis">
-    <figure class="about-photo"><img data-asset="media/francis-headshot.jpg" alt="Headshot of Francis Irabor" width="800" height="1000"></figure>
+    <figure class="about-photo"><img data-asset="media/w/francis-headshot.webp" alt="Headshot of Francis Irabor" width="800" height="1000"></figure>
     <div class="about-copy">
       <p class="big">A great product still has to earn a few seconds of attention. That is the job I do.</p>
       <p>I'm Francis Irabor, a designer and animator. I turn products, apps and ideas into motion, 3D and design that people stop for, understand quickly and remember, whether that's a 15-second app welcome video, a launch film or a full campaign.</p>
@@ -389,7 +414,7 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
 ''' + FOOT
 
 # ---------------- Case studies ----------------
-case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: motion graphics, 3D product, 3D visualisation and graphic design projects, with the brief, the design decisions and the tools behind each.") + header("Case studies") + f'''
+case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: motion graphics, 3D product, 3D visualisation and graphic design projects, with the brief, the design decisions and the tools behind each.", "case-studies.html") + header("Case studies") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -423,7 +448,10 @@ open("llms.txt", "w").write(f"""# Francis Irabor
 - Upwork: {UP}
 - CV: {CV}
 """)
+open("site.webmanifest", "w").write(json.dumps({"name": "Francis Irabor — Motion Designer & 3D Artist", "short_name": "Francis Irabor",
+    "icons": [{"src": "/assets/media/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/media/icon-512.png", "sizes": "512x512", "type": "image/png"}],
+    "theme_color": "#fefefe", "background_color": "#fefefe", "display": "standalone", "start_url": "/"}, indent=1))
 open("robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
 open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["", "work.html", "case-studies.html", "about.html"]) + "</urlset>\n")
+    "".join(f"  <url><loc>{SITE}{p}</loc><lastmod>{__import__('datetime').date.today().isoformat()}</lastmod></url>\n" for p in ["", "work.html", "case-studies.html", "about.html"]) + "</urlset>\n")
 print("built")

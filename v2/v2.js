@@ -40,6 +40,13 @@
   /* ---------- Tiles ---------- */
   const fmt = (s) => s >= 60 ? `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}` : `${Math.round(s)}s`;
   const posterT = (w) => Math.min(w.dur * 0.4, 6).toFixed(1);
+  /* Lighter files for the page: WebP stills, a WebP poster per video, and silent ~1 MB preview
+     clips for autoplay and hover. The full-quality files only load in the lightbox. */
+  const base = (p) => p.split("/").pop().replace(/\.\w+$/, "");
+  const webp = (w, sm) => url(`media/w/${base(w.src)}${sm ? "-sm" : ""}.webp`);
+  const vposter = (w) => url(`media/w/${base(w.src)}-poster.webp`);
+  const vprev = (w) => url(w.src.replace("video/", "video/preview/"));
+  const altOf = (id) => { const w = W[id]; return `${w.title ? w.title + (w.caption ? ", " + w.caption.toLowerCase() : "") : (CAT_OF[id] || "Work")} by Francis Irabor`; };
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
@@ -48,6 +55,14 @@
       io.unobserve(v);
     });
   }, { rootMargin: "600px 0px" });
+
+  const autoIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.getAttribute("src")) v.src = v.dataset.src; v.play().catch(() => {}); }
+      else if (v.getAttribute("src")) v.pause();
+    });
+  }, { rootMargin: "200px 0px" });
 
   function tile(id, list, opts = {}) {
     const w = W[id];
@@ -58,25 +73,28 @@
     b.setAttribute("aria-label", `Open ${CAT_OF[id] || "piece"} ${w.type}`);
     if (w.type === "video") {
       const v = document.createElement("video");
-      v.muted = true; v.loop = true; v.playsInline = true; v.preload = "metadata";
+      v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
       v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
-      v.dataset.src = url(w.src); v.dataset.t = posterT(w);
-      if (w.poster) v.poster = url(w.poster);
+      v.dataset.src = vprev(w); v.poster = vposter(w);
+      v.setAttribute("aria-label", altOf(id));
       if (opts.autoplay && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
         // Feed-style: plays silently on its own, opens with sound when clicked.
-        v.autoplay = true; v.setAttribute("autoplay", ""); v.preload = "auto"; v.src = v.dataset.src;
+        v.autoplay = true; v.setAttribute("autoplay", ""); v.preload = "auto";
         b.classList.add("is-previewing");
-      } else io.observe(v);
+        autoIO.observe(v); // loads only when on screen, so hidden cards (e.g. on phones) cost nothing
+      }
       b.append(v);
       if (!opts.bare) b.insertAdjacentHTML("beforeend", `<span class="dur" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z"/></svg>${fmt(w.dur)}</span>`);
       if (canHover && !opts.autoplay) {
         b.addEventListener("mouseenter", () => { if (!v.getAttribute("src")) v.src = v.dataset.src; b.classList.add("is-previewing"); v.play().catch(() => {}); });
-        b.addEventListener("mouseleave", () => { b.classList.remove("is-previewing"); v.pause(); try { v.currentTime = +v.dataset.t; } catch (_) {} });
+        b.addEventListener("mouseleave", () => { b.classList.remove("is-previewing"); v.pause(); try { v.currentTime = 0; } catch (_) {} });
       }
     } else {
       const img = new Image();
-      img.loading = opts.eager ? "eager" : "lazy"; img.decoding = "async"; img.alt = "";
-      img.src = url(w.src);
+      img.loading = opts.eager ? "eager" : "lazy"; img.decoding = "async"; img.alt = altOf(id);
+      img.src = webp(w, true);
+      img.srcset = `${webp(w, true)} 720w, ${webp(w)} 1600w`;
+      img.sizes = "(max-width: 760px) 100vw, 50vw";
       b.append(img);
       if (!opts.bare) b.insertAdjacentHTML("beforeend", `<span class="zoom" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg></span>`);
     }
@@ -274,7 +292,7 @@
         </div></div>`;
       const cover = W[c.cover];
       const img = new Image(); img.alt = ""; img.loading = "lazy"; img.decoding = "async";
-      img.src = url(cover.type === "video" ? (cover.poster || "") : cover.src);
+      img.src = cover.type === "video" ? vposter(cover) : webp(cover, true); img.alt = altOf(c.cover);
       if (c.coverPos) $(".csx-cover", a).style.setProperty("--cp", c.coverPos);
       $(".csx-cover", a).append(img);
       if (W[c.hero].ratio < 1) $(".csx-mid", a).classList.add("tall");
@@ -308,11 +326,11 @@
         const v = document.createElement("video");
         v.playsInline = true; v.setAttribute("playsinline", "");
         if (full) { v.src = url(w.src); v.controls = true; v.autoplay = true; v.loop = true; v.preload = "auto"; }
-        else { v.src = url(w.src) + "#t=" + posterT(w); v.muted = true; v.preload = "metadata"; }
+        else { const t = new Image(); t.src = vposter(w); t.alt = ""; t.loading = "lazy"; return t; }
         return v;
       }
       const img = new Image();
-      img.src = url(w.src); img.alt = ""; img.decoding = "async";
+      img.src = full ? webp(w) : webp(w, true); img.alt = altOf(id); img.decoding = "async";
       return img;
     }
     function show(dir) {
@@ -329,7 +347,7 @@
       strip.querySelectorAll("button").forEach((b, k) => b.setAttribute("aria-current", String(k === i)));
       strip.children[i]?.scrollIntoView({ block: "nearest", inline: "center" });
       [list[(i + 1) % list.length], list[(i - 1 + list.length) % list.length]].forEach((n) => {
-        if (W[n].type === "image") { const p = new Image(); p.src = url(W[n].src); }
+        if (W[n].type === "image") { const p = new Image(); p.src = webp(W[n]); }
       });
     }
     function go(d) { i = (i + d + list.length) % list.length; show(d); }
