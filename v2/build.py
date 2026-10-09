@@ -9,8 +9,8 @@ SITE = "https://francisirabor.com/"
 TALK = f"mailto:{MAIL}?subject=Let%27s%20talk"
 
 # One sentence that says who he is, for people, search engines and AI agents alike.
-POSITION = ("Francis Irabor is a motion designer and 3D artist who creates launch films, product visuals "
-            "and social content for tech and consumer brands. He has worked with clients worldwide, both on contract and in remote full-time roles, and is open to new freelance projects "
+POSITION = ("Francis Irabor is a motion designer and 3D artist who helps brands explain their products "
+            "through motion graphics, 3D animation and design that people stop for, understand and remember. He has worked with clients worldwide, both on contract and in remote full-time roles, and is open to new freelance projects "
             "and full-time positions.")
 
 MARK = '<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 C 45 3, 95 2, 135 5 S 185 10, 197 4"/></svg>'
@@ -39,7 +39,7 @@ PERSON = {
 
 SITEJSON = {"@context": "https://schema.org", "@type": "WebSite", "name": "Francis Irabor", "url": SITE,
             "description": POSITION, "author": {"@type": "Person", "name": "Francis Irabor"}}
-OG = SITE + "assets/media/og-francis-irabor-share.jpg"
+OG = SITE + "assets/media/og-francis-irabor-card.jpg"
 
 def head(title, desc, path=""):
     canon = SITE + path
@@ -387,9 +387,10 @@ about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "
   <section class="wrap about-grid" aria-label="About Francis">
     <figure class="about-photo"><img data-asset="media/w/francis-headshot.webp" alt="Headshot of Francis Irabor" width="800" height="1000"></figure>
     <div class="about-copy">
-      <p class="big">A great product still has to earn a few seconds of attention. That is the job I do.</p>
-      <p>I'm Francis Irabor, a designer and animator. I turn products, apps and ideas into motion, 3D and design that people stop for, understand quickly and remember, whether that's a 15-second app welcome video, a launch film or a full campaign.</p>
-      <p>I've worked with brands across tech, finance, publishing, fashion, music, arts and culture, for clients worldwide, both on contract and in remote full-time roles. I'm open to both.</p>
+      <p class="big">Your product deserves more than a scroll-past. I help people understand it in seconds and remember it afterwards.</p>
+      <p>You know your product inside out. Your audience gives it a few seconds. I use motion graphics, 3D and design to close that gap, showing what your product does, why it matters and why it's worth trying before they scroll away.</p>
+      <p>That might be an app welcome video that gets new users to their first win, a 3D product animation that makes your features easy to see, or a campaign that looks right on every screen. You work with one person from concept to final file, so your idea stays clear and nothing gets lost in handovers.</p>
+      <p>I've done this for brands in tech, finance, publishing, fashion, music, arts and culture, for clients worldwide, on contract and in remote full-time roles. Whether you need a project done or a designer on your team, I'd love to hear what you're building.</p>
       <div class="btns">
         <a class="btn btn-dark" href="#contact">Let's talk {ARR}</a>
         <a class="btn btn-line" href="{CV}" target="_blank" rel="noopener">View CV</a>
@@ -399,11 +400,11 @@ about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "
 {clients()}
   <section class="bring" aria-labelledby="bring-h">
     <div class="wrap">
-      <h2 id="bring-h" class="h2">What I bring to a team</h2>
+      <h2 id="bring-h" class="h2">What you get when we work together</h2>
       <div class="bring-grid">
-        <article><span class="eyebrow">01</span><h3>Design and motion in one person</h3><p>From concept and styleframes to the final animation, without handing the work between people.</p></article>
-        <article><span class="eyebrow">02</span><h3>Every format, from one project</h3><p>One idea delivered for the big screen, stories, feeds and print, so a campaign looks the same everywhere.</p></article>
-        <article><span class="eyebrow">03</span><h3>Fluent in the tools, open to AI</h3><p>Adobe's suite, Blender and Figma for production, with AI tools like Midjourney and Adobe Firefly for faster exploration.</p></article>
+        <article><span class="eyebrow">01</span><h3>One person, start to finish</h3><p>You brief one person who handles the concept, styleframes and final animation, so feedback rounds stay quick and your idea isn't diluted between handovers.</p></article>
+        <article><span class="eyebrow">02</span><h3>Ready for every screen</h3><p>Your project arrives sized for websites, stories, feeds, ads and print, so your brand looks consistent wherever people see it.</p></article>
+        <article><span class="eyebrow">03</span><h3>See ideas sooner</h3><p>Production in After Effects, Blender and Figma, with AI tools like Midjourney and Adobe Firefly to explore directions fast, so you can pick a look before the real work starts.</p></article>
       </div>
     </div>
   </section>
