@@ -39,7 +39,6 @@ PERSON = {
   "knowsAbout": ["Motion graphics", "Motion graphics design", "Motion design", "Product videos", "Explainer videos", "SaaS launch videos", "App onboarding videos", "UI animation", "Brand animation", "Logo animation", "2D and 3D animation", "3D product design", "3D product animation",
                  "3D visualization", "Brand identity", "Graphic design", "Illustration", "Launch videos", "Social media content"],
   "image": SITE + "assets/media/francis-headshot.jpg",
-  "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"},
   "worksFor": {"@type": "Organization", "name": "Ruffbox Studio"},
   "sameAs": [LI, UP],
   "seeks": {"@type": "Demand", "description": "Freelance projects and full-time design or motion roles, remote"},
@@ -391,8 +390,6 @@ FAQS = [
    "Product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, and social media content for brands."),
   ("Which tools does Francis use?",
    "After Effects, Premiere Pro, Blender, Illustrator, Photoshop and Figma, with AI tools such as Midjourney, Adobe Firefly and Claude to explore ideas quickly."),
-  ("Where is Francis based?",
-   "Lagos, Nigeria. He works remotely with clients and teams worldwide and is used to working across time zones."),
 ]
 FAQ_JSON = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
   {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS]}
@@ -483,7 +480,7 @@ open("llms.txt", "w").write(f"""# Francis Irabor (also written Irabor Francis)
 
 > {POSITION}
 
-Francis Irabor is a motion graphics designer and 3D artist available to hire for freelance projects and full-time remote roles. He makes product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, brand and campaign graphics, and illustration. Brands he has worked with include YouTube, Google Gemini, Google for Startups, Shotstack, Lenco, PaywithAccount, Rubix, SALG and medcob. Based in Lagos, Nigeria; works remotely with clients worldwide.
+Francis Irabor is a motion graphics designer and 3D artist available to hire for freelance projects and full-time remote roles. He makes product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, brand and campaign graphics, and illustration. Brands he has worked with include Google Gemini, YouTube, Google for Startups, Shotstack, Lenco, PaywithAccount, Rubix, SALG and medcob. Works remotely with clients worldwide.
 
 ## Pages
 - [Home]({SITE}): who he is, featured work, specialties, process and contact

@@ -7,6 +7,7 @@ window.ASSET_BASE = window.ASSET_BASE || "assets/";
 window.WORKS = {
   // New work (added Oct 2026)
   sr1: { type: "video", src: "video/story-roll-welcome.mp4", poster: "media/story-roll-welcome.jpg", ratio: 9/16, dur: 15.0, title: "Story Roll", caption: "First-use welcome video" },
+  gm1: { type: "video", src: "video/gemini-night.mp4", poster: "media/gemini-night.jpg", ratio: 16 / 9, dur: 30, title: "Google Gemini", caption: "AI assistant brand film" },
   lw1: { type: "video", src: "video/loopwise-saas-launch.mp4", poster: "media/loopwise-saas-launch.jpg", ratio: 16/9, dur: 20.0, title: "Loopwise", caption: "SaaS launch film" },
   // 3D product design
   p1: { type: "image", src: "media/09437fe339a3f55db56ba86aab9ef504.png", ratio: 16/9 },
@@ -96,7 +97,7 @@ window.TOOL_ICONS = [
 ];
 
 /* New pieces shown first in a category on the v2 site (the Canva-layout pages ignore this). */
-window.NEW_WORKS = { "motion-graphics": ["lw1", "sr1"] };
+window.NEW_WORKS = { "motion-graphics": ["lw1", "gm1", "sr1"] };
 
 /* Pieces taken off the v2 site (still listed above so the Canva-layout pages keep their shape):
    m3 Remi release clip, m4 altcoin, m5 Schedify teaser, m7 Remi landscape film. */
@@ -105,7 +106,7 @@ window.HIDDEN_WORKS = ["m3", "m4", "m5", "m7"];
 /* ---------- v2 site settings ---------- */
 /* Strongest work first: category order, then piece order inside each category. */
 window.V2_ORDER = [
-  ["motion-graphics", ["lw1", "sr1", "m2", "m6", "m1", "m8"]],
+  ["motion-graphics", ["lw1", "gm1", "sr1", "m2", "m6", "m1", "m8"]],
   ["3d-product-animation", ["pa3", "pa1", "pa2", "pa4"]],
   ["3d-product-design", ["p5", "p4", "p3", "p1", "p2"]],
   ["3d-visualization", ["v3", "v1", "v4", "v5", "v2"]],
