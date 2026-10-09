@@ -130,17 +130,17 @@ window.CASES = [
 /* Case studies page: ids from CASES above, in order. Optional per case: brief, approach, result (arrays of paragraphs). */
 window.CASE_STUDIES = ["lw1", "sr1"];
 
-/* Client strip, most recognisable first, in full colour (dark ink turned white for the black band). */
+/* Client strip, most recognisable first, in the brands' original colours. */
 window.CLIENTS = [
   { icon: "media/client-youtube.svg", text: "YouTube" },
   { icon: "media/client-gemini.svg", text: "Google Gemini" },
   { img: "media/client-google.png", name: "Google", text: "for Startups" },
-  { img: "media/client-shotstack.png", name: "Shotstack" },
-  { img: "media/client-lenco.svg", name: "Lenco" },
-  { img: "media/client-paywithaccount.png", name: "PaywithAccount" },
-  { img: "media/client-rubix.png", name: "Rubix" },
-  { img: "media/client-salg.png", name: "SALG" },
-  { img: "media/client-medcob.png", name: "medcob" }
+  { img: "media/fa371bc5b47ad61936281e5c776d29ca.png", name: "Shotstack" },
+  { img: "media/f0c255c817b42fe8b2a6dfabb900338e.svg", name: "Lenco" },
+  { img: "media/cda8aca2d9626228318d3ccc2e7cc72b.png", name: "PaywithAccount" },
+  { img: "media/fae87f258474cd6bee9e0c2b0d6209da.png", name: "Rubix" },
+  { img: "media/4cbae8ea3cc8525632dcff64f9fc8aa6.png", name: "SALG" },
+  { img: "media/ff3e706cac420628fbbd872221351aad.png", name: "medcob" }
 ];
 /* AI tools shown in the toolkit alongside the design apps. */
 window.AI_TOOL_ICONS = ["media/tool-claude.svg", "media/tool-midjourney.svg", "media/tool-firefly.svg"];

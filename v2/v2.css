@@ -514,3 +514,16 @@ body.lb-open { overflow: hidden; }
 .cs-block .label { margin: 0 0 8px; font: 600 .75rem/1.2 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--tan); }
 .cs-block p { margin: 0 0 10px; color: var(--text); }
 @media (max-width: 860px) { .cs-body, .cs-body.tall { grid-template-columns: 1fr; } }
+
+/* Specialties as equal-size cards: grey box holding the copy and the work side by side */
+.specs { gap: 24px; }
+.spec { background: var(--panel); border-radius: 28px; padding: clamp(20px, 3.5vw, 40px); grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 48px); }
+.spec-copy { padding: clamp(4px, 1.5vw, 16px); }
+.spec .panel { background: transparent; padding: 0; height: clamp(320px, 34vw, 420px); border-radius: 18px; overflow: hidden; box-shadow: none; }
+.spec .panel .tile { aspect-ratio: auto; height: 100%; width: 100%; box-shadow: none; border-radius: 14px; }
+.spec .panel.p-mix { grid-template-columns: 1fr 1fr; grid-template-rows: 3fr 2fr; gap: 10px; }
+.spec .panel.p-mix > .tile:first-of-type { grid-column: 1 / -1; }
+.spec .panel.p-tall { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: 1fr; gap: 10px; }
+.spec .stamp { top: 12px; right: 12px; }
+@media (max-width: 860px) { .spec .panel { height: 300px; } }
+.spec { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
