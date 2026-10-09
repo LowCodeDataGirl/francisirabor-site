@@ -36,8 +36,19 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      # The new site (v2) is served at the root of francisirabor.com.
+      # /v2/ keeps working too, so older shared links don't break.
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r assets works.js v2 _site/
+          for f in v2/*.html; do
+            sed -e 's#\.\./assets/#assets/#g' -e 's#\.\./works\.js#works.js#g' "$f" > "_site/$(basename "$f")"
+          done
+          cp v2/v2.css v2/v2.js v2/llms.txt v2/robots.txt v2/sitemap.xml _site/
+          touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
