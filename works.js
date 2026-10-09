@@ -144,3 +144,115 @@ window.CLIENTS = [
 ];
 /* AI tools shown in the toolkit alongside the design apps. */
 window.AI_TOOL_ICONS = ["media/tool-claude.svg", "media/tool-midjourney.svg", "media/tool-firefly.svg"];
+
+/* ---------- Case studies (v2 case-studies page) ----------
+   One per major category. Collapsed: cover, title, summary, tools.
+   Expanded: overview, challenge, approach, hero media, detail shots with the reasoning, tools. */
+Object.assign(window.WORKS, {
+  cs_lw_a: { type: "image", src: "media/cs-loopwise-tasks.jpg", ratio: 16 / 9, title: "Loopwise", caption: "Product UI, rebuilt for motion" },
+  cs_lw_b: { type: "image", src: "media/cs-loopwise-endcard.jpg", ratio: 16 / 9, title: "Loopwise", caption: "End card" },
+  cs_dl_a: { type: "image", src: "media/cs-dynalimb-callout.jpg", ratio: 16 / 9, title: "Dynalimb", caption: "Feature callouts" },
+  cs_dl_b: { type: "image", src: "media/cs-dynalimb-sole.jpg", ratio: 16 / 9, title: "Dynalimb", caption: "Underside reveal" },
+  cs_yt_a: { type: "image", src: "media/cs-youtube-wall.jpg", ratio: 540 / 304, title: "YouTube for Film Makers", caption: "Hero wall" },
+  cs_yt_b: { type: "image", src: "media/cs-youtube-set.jpg", ratio: 700 / 315, title: "YouTube for Film Makers", caption: "Set props" },
+  cs_pa_a: { type: "image", src: "media/cs-paywithaccount-detail.jpg", ratio: 560 / 380, title: "PaywithAccount", caption: "Proof and offer details" }
+});
+Object.assign(window.WORKS.pa2, { title: "Dynalimb", caption: "3D product animation", poster: "media/dynalimb-poster.jpg" });
+Object.assign(window.WORKS.v3, { title: "YouTube for Film Makers", caption: "3D event booth" });
+Object.assign(window.WORKS.g3, { title: "PaywithAccount", caption: "Lights on, Lagos! campaign" });
+Object.assign(window.WORKS.g2, { title: "PaywithAccount", caption: "Launch event invite" });
+
+window.CASE_FILES = [
+  {
+    id: "loopwise", category: "Motion Graphics", client: "Loopwise", year: "2025",
+    title: "Loopwise: a 20-second launch film for a SaaS tool",
+    summary: "A launch film that explains what Loopwise does in the time it takes to scroll past it: the brand, the product at work, then one clear line to remember.",
+    cover: "lw1", hero: "lw1",
+    facts: [["Deliverable", "SaaS launch film"], ["Format", "16:9 · 20 seconds"], ["Role", "Motion design & animation"]],
+    overview: [
+      "Loopwise is a productivity tool that turns meetings and conversations into action items, assigns them, and follows up automatically. The launch needed a short film that could open a landing page, run as a social ad and sit at the top of a product announcement.",
+      "The film introduces the name, shows the product doing its job, and lands on the line \"Close every loop.\""
+    ],
+    challenge: [
+      "SaaS products are hard to film. There is nothing physical to show, and a raw screen recording is too dense to read at social speed. The film had to show real interface, not abstract shapes, without asking the viewer to study a dashboard."
+    ],
+    approach: [
+      "I rebuilt the key screens as clean, layered UI cards so each one could be animated on its own. Every scene carries one idea: the meeting happens, the tasks appear, the tasks get assigned, the follow-up runs on autopilot. Kinetic type ties the scenes together and carries the story when the UI is moving.",
+      "The palette comes from the Loopwise mark: soft lilac and pink gradients behind white glass cards, so the product colours do the branding and the interface stays easy to read."
+    ],
+    details: [
+      { work: "cs_lw_a", title: "One idea per scene", note: "The action-items card shows three tasks, not thirty. Avatars and due dates snap in one at a time so the eye follows the assignment as it happens, and the word \"Assigns\" names the feature on screen." },
+      { work: "cs_lw_b", title: "An end card that does one job", note: "The film ends on the logo and the promise, \"Close every loop\", with nothing else competing for attention. It holds long enough to read, so the film also works with the sound off." }
+    ],
+    tools: ["After Effects", "Figma", "Illustrator", "Premiere Pro"]
+  },
+  {
+    id: "dynalimb", category: "3D Product", client: "Dynalimb Technologies", year: "2025",
+    title: "Dynalimb: showing what makes a 3D-printed prosthetic foot different",
+    summary: "A 3D product animation that turns a technical prosthetic into something anyone can understand, one feature at a time.",
+    cover: "pa2", hero: "pa2",
+    facts: [["Deliverable", "3D product animation"], ["Format", "16:9 · 41 seconds"], ["Role", "3D modelling, lighting, animation & compositing"]],
+    overview: [
+      "Dynalimb Technologies makes 3D-printed prosthetic feet. They needed a product film for their website and pitch decks that could explain the design to patients, clinicians and investors in under a minute.",
+      "The film orbits the foot on a clean stage and pauses on the four things that set it apart: advanced 3D printing, biomechanical precision, durability and a patient-first fit."
+    ],
+    challenge: [
+      "A prosthetic is a medical product, so it has to look trustworthy and precise, not flashy. It also has a complex lattice structure that can read as noise on a small screen if it is not lit and framed carefully."
+    ],
+    approach: [
+      "I modelled the foot and its lattice in Blender and lit it like a studio product shot: soft key light, gentle rim light and a seamless purple backdrop matched to the Dynalimb brand. The camera moves slowly and stops wherever a feature needs explaining.",
+      "Each feature gets a thin, technical callout line drawn on in After Effects, closer to an engineering drawing than an ad. The labels stay short so the film still makes sense to someone who is not a clinician."
+    ],
+    details: [
+      { work: "cs_dl_a", title: "Callouts like an engineering drawing", note: "Thin lines and serif labels point to the exact part of the foot being described. They feel precise and medical, and they draw on and off quickly so the product stays the hero." },
+      { work: "cs_dl_b", title: "Turning the product over", note: "The underside shot shows the mounting point and sole, which a still photo rarely does. The dimension arrow labelled \"Durable\" turns an abstract claim into something you can see." }
+    ],
+    tools: ["Blender", "Substance 3D Painter", "After Effects", "Premiere Pro"]
+  },
+  {
+    id: "youtube-film-makers", category: "3D Visualization", client: "YouTube", year: "2025",
+    title: "YouTube for Film Makers: an event booth visualised before it was built",
+    summary: "A photoreal 3D visualisation of a branded photo booth, used to sign off the design and brief the build team before anything was fabricated.",
+    cover: "v3", hero: "v3",
+    facts: [["Deliverable", "3D event visualisation"], ["Format", "Stills"], ["Role", "3D design & rendering"]],
+    overview: [
+      "For a YouTube for Film Makers event, the brief was a compact branded set where creators could take photos and short videos. I designed the space in 3D so the team could see the booth, approve it and hand it to fabricators with fewer surprises on the day.",
+      "The set is a three-sided room with a patterned film wall, a raised 3D logo, a red floor and props that say \"film\" at a glance: a clapperboard, a director's stool and an oversized film reel."
+    ],
+    challenge: [
+      "A photo booth has to look good from one camera angle in every photo guests take, while still being buildable at real scale. It also had to read as YouTube instantly, without covering every surface in logos."
+    ],
+    approach: [
+      "I kept the brand to two colours, YouTube red and white, and let the props carry the theme. The wall pattern uses simple line icons of cameras, reels and clapperboards in red so it reads as texture up close and as \"film\" from across the room.",
+      "Everything was modelled at real-world scale and lit with practical lights in the scene, so the renders show how the booth would actually look and photograph on site."
+    ],
+    details: [
+      { work: "cs_yt_a", title: "A logo with depth", note: "The \"FOR FILM MAKERS\" lockup is built as raised letters with real shadows, not a flat print, so it catches the light and holds up in photos from any angle in front of the set." },
+      { work: "cs_yt_b", title: "Props at human scale", note: "The clapperboard and director's stool are sized for people to lean on and sit next to. They give guests something to do in photos and make the theme obvious without more branding." }
+    ],
+    tools: ["Blender", "Illustrator", "Photoshop"]
+  },
+  {
+    id: "paywithaccount", category: "Graphic Design", client: "PaywithAccount", year: "2025",
+    title: "PaywithAccount: campaign graphics for a Lagos fintech launch",
+    summary: "Social and event graphics for PaywithAccount, built on OnePipe: a launch invite and an electricity cashback campaign that had to work in a busy Lagos feed.",
+    cover: "g3", hero: "g3", coverPos: "50% 22%",
+    facts: [["Deliverable", "Social campaign & event graphics"], ["Format", "4:5 and 1:1 posts"], ["Role", "Graphic design"]],
+    overview: [
+      "PaywithAccount lets people pay for things directly from their bank account. I designed the graphics for its launch and for its first big offer: schedule a ₦2,000 Eko Electric token and get ₦1,000 back.",
+      "The work had to carry a lot of information, including the offer, the code, the URL and the brand, and still be readable as a thumbnail."
+    ],
+    challenge: [
+      "Fintech offers can look like scams if they are loud and cluttered. The design needed to feel trustworthy and local at the same time, and it needed to make one number stand out."
+    ],
+    approach: [
+      "For the cashback post I used a real Lagos street at night with the lights on, which tells the electricity story before anyone reads a word. The headline \"Lights on, Lagos!\" sits high in bold white, the offer sits right under it, and the phone shows the actual product flow.",
+      "Success notifications, a price-code badge and a clear URL at the bottom give proof, urgency and a next step. The launch invite uses a lighter, cleaner layout with speaker cards so it reads as an event, not an ad."
+    ],
+    details: [
+      { work: "g2", title: "The launch invite", note: "White space, the brand blue and three speaker cards make it feel like a professional event. The date, venue and sign-up link sit at the bottom in a clear order: when, where, how." },
+      { work: "cs_pa_a", title: "Proof, urgency and a next step", note: "\"Yayy, successfully purchased!\" notifications act as social proof, the round code badge creates urgency, and the URL bar gives one obvious action. \"Set am face front\" adds a Lagos voice that makes the brand feel local." }
+    ],
+    tools: ["Photoshop", "Illustrator", "Figma"]
+  }
+];

@@ -228,29 +228,73 @@
     });
   }
 
-  /* ---------- Case studies page ---------- */
+  /* ---------- Case studies page: compact cards that open into the full story ---------- */
   const csList = $("#case-list");
-  if (csList) {
-    const byId = Object.fromEntries((window.CASES || []).map((c) => [c.id, c]));
-    const ids = (window.CASE_STUDIES || []).filter((id) => byId[id]);
-    ids.forEach((id, k) => {
-      const c = byId[id];
-      const s = document.createElement("section");
-      s.className = "cs" + (k % 2 ? " alt" : "");
-      s.id = "cs-" + id;
-      const block = (label, paras) => paras && paras.length ? `<div class="cs-block"><h3 class="label">${label}</h3>${paras.map((p) => `<p>${p}</p>`).join("")}</div>` : "";
-      s.innerHTML = `<div class="wrap">
-          <div class="cs-head"><span class="eyebrow">${c.client}${c.type ? ` · ${c.type}` : ""}</span><h2 class="h2">${c.title}</h2><p class="lede">${c.summary}</p></div>
-          <div class="cs-body ${W[id].ratio < 1 ? "tall" : ""}">
-            <div class="cs-media"></div>
-            <div class="cs-side">
-              <dl class="case-facts">${c.facts.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl>
-              ${block("The brief", c.brief)}${block("The approach", c.approach)}${block("The result", c.result)}
-            </div>
+  if (csList && window.CASE_FILES) {
+    const TOOL = {
+      "After Effects": ["Ae", "#9999ff", "#00005b"], "Premiere Pro": ["Pr", "#9999ff", "#00005b"],
+      "Photoshop": ["Ps", "#31a8ff", "#001e36"], "Illustrator": ["Ai", "#ff9a00", "#330000"],
+      "Substance 3D Painter": ["Pt", "#fe2c55", "#1a0a10"], "Blender": ["Bl", "#ffffff", "#e87d0d"],
+      "Figma": ["Fg", "#ffffff", "#a259ff"], "Midjourney": ["Mj", "#ffffff", "#111111"], "Adobe Firefly": ["Ff", "#ffffff", "#e5352b"]
+    };
+    const badge = (t) => { const [ab, fg, bg] = TOOL[t] || [t.slice(0, 2), "#fff", "#333"]; return `<li><span class="tb" style="color:${fg};background:${bg}" aria-hidden="true">${ab}</span>${t}</li>`; };
+    const paras = (ps) => (ps || []).map((p) => `<p>${p}</p>`).join("");
+    window.CASE_FILES.forEach((c, k) => {
+      const group = [c.hero, ...c.details.map((d) => d.work)];
+      const n = String(k + 1).padStart(2, "0");
+      const a = document.createElement("article");
+      a.className = "csx"; a.id = c.id;
+      a.innerHTML = `
+        <button class="csx-sum" aria-expanded="false" aria-controls="${c.id}-body">
+          <span class="csx-cover"></span>
+          <span class="csx-text">
+            <span class="csx-meta"><span class="csx-n">${n}</span><span class="eyebrow">${c.category}</span><span class="csx-client">${c.client}</span></span>
+            <span class="csx-title">${c.title}</span>
+            <span class="csx-lede">${c.summary}</span>
+            <span class="csx-tools">${c.tools.join(" · ")}</span>
+            <span class="csx-open"><span class="csx-open-t">Read case study</span><span class="csx-plus" aria-hidden="true"></span></span>
+          </span>
+        </button>
+        <div class="csx-body" id="${c.id}-body" role="region" aria-label="${c.client} case study"><div class="csx-in">
+          <dl class="csx-facts"><div><dt>Client</dt><dd>${c.client}</dd></div><div><dt>Category</dt><dd>${c.category}</dd></div>${c.facts.map(([x, y]) => `<div><dt>${x}</dt><dd>${y}</dd></div>`).join("")}</dl>
+          <div class="csx-cols">
+            <div><h3 class="label">Overview</h3>${paras(c.overview)}</div>
+            <div><h3 class="label">The challenge</h3>${paras(c.challenge)}</div>
           </div>
-        </div>`;
-      $(".cs-media", s).append(tile(id, ids));
-      csList.append(s);
+          <div class="csx-mid"><figure class="csx-hero"></figure>
+          <div class="csx-approach"><h3 class="label">The approach</h3>${paras(c.approach)}</div></div>
+          <div class="csx-details">${c.details.map((d, i) => `
+            <figure class="csx-fig"><div class="csx-fig-m" data-i="${i}"></div>
+              <figcaption><span class="csx-fig-n">${String(i + 1).padStart(2, "0")}</span><b>${d.title}</b><span>${d.note}</span></figcaption></figure>`).join("")}
+          </div>
+          <div class="csx-foot">
+            <div><h3 class="label">Tools used</h3><ul class="csx-tb">${c.tools.map(badge).join("")}</ul></div>
+            <button class="tlink csx-close" type="button">Close case study <span class="arr" aria-hidden="true">↑</span></button>
+          </div>
+        </div></div>`;
+      const cover = W[c.cover];
+      const img = new Image(); img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+      img.src = url(cover.type === "video" ? (cover.poster || "") : cover.src);
+      if (c.coverPos) $(".csx-cover", a).style.setProperty("--cp", c.coverPos);
+      $(".csx-cover", a).append(img);
+      if (W[c.hero].ratio < 1) $(".csx-mid", a).classList.add("tall");
+      if (cover.type === "video") $(".csx-cover", a).insertAdjacentHTML("beforeend", `<span class="csx-play" aria-hidden="true">▶</span>`);
+      const sum = $(".csx-sum", a), body = $(".csx-body", a);
+      let built = false;
+      const set = (open) => {
+        if (open && !built) {
+          built = true;
+          $(".csx-hero", a).append(tile(c.hero, group, { autoplay: true }));
+          c.details.forEach((d, i) => $(`.csx-fig-m[data-i="${i}"]`, a).append(tile(d.work, group)));
+        }
+        a.classList.toggle("open", open); sum.setAttribute("aria-expanded", String(open));
+        $(".csx-open-t", a).textContent = open ? "Close case study" : "Read case study";
+        if (open) history.replaceState(null, "", "#" + c.id);
+      };
+      sum.addEventListener("click", () => set(!a.classList.contains("open")));
+      $(".csx-close", a).addEventListener("click", () => { set(false); a.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      csList.append(a);
+      if (location.hash === "#" + c.id) { set(true); requestAnimationFrame(() => a.scrollIntoView({ block: "start" })); }
     });
   }
 

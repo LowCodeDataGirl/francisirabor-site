@@ -389,13 +389,13 @@ about = head("About — Francis Irabor", POSITION) + header("About") + f'''
 ''' + FOOT
 
 # ---------------- Case studies ----------------
-case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: the brief, the approach and the result behind selected motion design, 3D and experiential projects.") + header("Case studies") + f'''
+case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: motion graphics, 3D product, 3D visualisation and graphic design projects, with the brief, the design decisions and the tools behind each.") + header("Case studies") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
     <div class="wrap">
       <h1 class="h1">Case {mark("studies")}</h1>
-      <p class="lede">The brief, the approach and the result behind selected projects.</p>
+      <p class="lede">One project from each discipline: what the brief was, the decisions behind the design, and the tools used to make it.</p>
     </div>
   </section>
   <div id="case-list"></div>
