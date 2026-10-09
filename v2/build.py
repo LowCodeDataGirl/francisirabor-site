@@ -1,5 +1,8 @@
 # Builds the v2 pages from shared parts. Run: python3 build.py
 import json
+import subprocess
+_data = json.loads(subprocess.run(["node", "-e", "global.window={};require('../works.js');process.stdout.write(JSON.stringify(window.CASE_FILES))"],
+                                  capture_output=True, text=True, check=True).stdout)
 
 CV = "https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk"
 MAIL = "iraborfrancis321@gmail.com"
@@ -9,6 +12,10 @@ SITE = "https://francisirabor.com/"
 TALK = f"mailto:{MAIL}?subject=Let%27s%20talk"
 
 # One sentence that says who he is, for people, search engines and AI agents alike.
+HOME_DESC = ("Hire Francis Irabor (Irabor Francis), a motion graphics designer and 3D artist. Product videos, "
+             "SaaS launch films, app onboarding animations, 3D product animation and brand design for clients worldwide. "
+             "Available for freelance projects and full-time remote roles.")
+
 POSITION = ("Francis Irabor is a motion designer and 3D artist who helps brands explain their products "
             "through motion graphics, 3D animation and design that people stop for, understand and remember. He has worked with clients worldwide, both on contract and in remote full-time roles, and is open to new freelance projects "
             "and full-time positions.")
@@ -26,9 +33,10 @@ REEL = f'<svg {SV}><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 
 
 PERSON = {
   "@context": "https://schema.org", "@type": "Person", "name": "Francis Irabor",
+  "alternateName": ["Irabor Francis", "Francis I."], "givenName": "Francis", "familyName": "Irabor",
   "jobTitle": "Motion Designer & 3D Artist", "url": SITE, "email": f"mailto:{MAIL}",
   "description": POSITION,
-  "knowsAbout": ["Motion graphics", "2D and 3D animation", "3D product design", "3D product animation",
+  "knowsAbout": ["Motion graphics", "Motion graphics design", "Motion design", "Product videos", "Explainer videos", "SaaS launch videos", "App onboarding videos", "UI animation", "Brand animation", "Logo animation", "2D and 3D animation", "3D product design", "3D product animation",
                  "3D visualization", "Brand identity", "Graphic design", "Illustration", "Launch videos", "Social media content"],
   "image": SITE + "assets/media/francis-headshot.jpg",
   "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"},
@@ -248,7 +256,7 @@ SPECS = [
 ]
 
 # ---------------- Home ----------------
-index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION, "") + header("") + f'''
+index = head("Francis Irabor — Motion Graphics Designer & 3D Artist for Hire", HOME_DESC, "") + header("") + f'''
 <main>
   <section class="hero center">
     <div class="dots" aria-hidden="true"></div>
@@ -311,7 +319,7 @@ index = head("Francis Irabor — Motion Designer & 3D Artist", POSITION, "") + h
 ''' + FOOT
 
 # ---------------- Work ----------------
-work = head("Work — Francis Irabor", "The portfolio of Francis Irabor: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.", "work.html") + header("Work") + f'''
+work = head("Motion Graphics & 3D Portfolio — Francis Irabor", "The portfolio of Francis Irabor: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.", "work.html") + header("Work") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -374,6 +382,31 @@ services = head("Services — Francis Irabor", "Services from Francis Irabor: mo
 
 ''' + FOOT
 
+FAQS = [
+  ("Can I hire Francis Irabor for a freelance motion graphics project?",
+   "Yes. Francis takes on freelance projects worldwide, from a single product video or app onboarding animation to a full launch campaign. Email " + MAIL + " or message him on Upwork or LinkedIn to start."),
+  ("Is Francis open to full-time roles?",
+   "Yes. He has worked in remote full-time roles as well as on contract, and is open to full-time motion design, 3D or design positions."),
+  ("What kind of motion graphics does Francis make?",
+   "Product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, and social media content for brands."),
+  ("Which tools does Francis use?",
+   "After Effects, Premiere Pro, Blender, Illustrator, Photoshop and Figma, with AI tools such as Midjourney, Adobe Firefly and Claude to explore ideas quickly."),
+  ("Where is Francis based?",
+   "Lagos, Nigeria. He works remotely with clients and teams worldwide and is used to working across time zones."),
+]
+FAQ_JSON = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS]}
+FAQ_HTML = """  <section class="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h" class="h2">Questions people ask</h2>
+      <div class="faq-list">""" + "".join(f"""
+        <details><summary>{q}</summary><p>{a}</p></details>""" for q, a in FAQS) + f"""
+      </div>
+    </div>
+  </section>
+<script type="application/ld+json">{json.dumps(FAQ_JSON)}</script>
+"""
+
 # ---------------- About ----------------
 about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "about.html") + header("About") + f'''
 <main>
@@ -408,13 +441,14 @@ about = head("About Francis Irabor — Motion Designer & 3D Artist", POSITION, "
       </div>
     </div>
   </section>
+{FAQ_HTML}
 {QUOTE}
 {closer(False)}</main>
 
 ''' + FOOT
 
 # ---------------- Case studies ----------------
-case_studies = head("Case studies — Francis Irabor", "Case studies from Francis Irabor: motion graphics, 3D product, 3D visualisation and graphic design projects, with the brief, the design decisions and the tools behind each.", "case-studies.html") + header("Case studies") + f'''
+case_studies = head("Motion Design & 3D Case Studies — Francis Irabor", "Case studies from Francis Irabor: motion graphics, 3D product, 3D visualisation and graphic design projects, with the brief, the design decisions and the tools behind each.", "case-studies.html") + header("Case studies") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -424,6 +458,10 @@ case_studies = head("Case studies — Francis Irabor", "Case studies from Franci
     </div>
   </section>
   <div id="case-list"></div>
+<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@type": "ItemList", "name": "Case studies by Francis Irabor",
+  "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "CreativeWork", "name": c["title"], "description": c["summary"],
+    "genre": c["category"], "url": SITE + "case-studies.html#" + c["id"], "creator": {"@type": "Person", "name": "Francis Irabor"},
+    "sourceOrganization": {"@type": "Organization", "name": c["client"]}}} for i, c in enumerate(_data)]})}</script>
 {closer(False)}</main>
 
 ''' + FOOT
@@ -432,26 +470,44 @@ for name, html in [("index.html", index), ("work.html", work), ("case-studies.ht
     open(name, "w").write(html)
 
 # Files that help search engines and AI agents understand the site.
-open("llms.txt", "w").write(f"""# Francis Irabor
+_cases = "\n".join(f"""### {c['title']}
+- Category: {c['category']} · Client: {c['client']}
+- {c['summary']}
+- {' '.join(c['overview'])}
+- Approach: {' '.join(c['approach'])}
+- Tools: {', '.join(c['tools'])}
+- Link: {SITE}case-studies.html#{c['id']}
+""" for c in _data)
+_faq = "\n".join(f"**{q}**\n{a}\n" for q, a in FAQS)
+open("llms.txt", "w").write(f"""# Francis Irabor (also written Irabor Francis)
 
 > {POSITION}
 
-## Pages
-- [Home]({SITE}): overview, selected work, process and contact
-- [Work]({SITE}work.html): featured projects and the full portfolio by discipline
-- [Case studies]({SITE}case-studies.html): selected projects with the brief, approach and outcome
-- [About]({SITE}about.html): background, what he brings to a team, availability
+Francis Irabor is a motion graphics designer and 3D artist available to hire for freelance projects and full-time remote roles. He makes product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, brand and campaign graphics, and illustration. Brands he has worked with include YouTube, Google Gemini, Google for Startups, Shotstack, Lenco, PaywithAccount, Rubix, SALG and medcob. Based in Lagos, Nigeria; works remotely with clients worldwide.
 
-## Contact
+## Pages
+- [Home]({SITE}): who he is, featured work, specialties, process and contact
+- [Work]({SITE}work.html): the full portfolio by discipline (motion graphics, 3D product animation, 3D product design, 3D visualisation, graphic design, illustration)
+- [Case studies]({SITE}case-studies.html): one in-depth project per discipline, with the challenge, design decisions and tools
+- [About]({SITE}about.html): how he helps clients, what working with him looks like, FAQ
+
+## Case studies
+{_cases}
+## FAQ
+{_faq}
+## Hire or contact
 - Email: {MAIL}
-- LinkedIn: {LI}
 - Upwork: {UP}
+- LinkedIn: {LI}
 - CV: {CV}
 """)
 open("site.webmanifest", "w").write(json.dumps({"name": "Francis Irabor — Motion Designer & 3D Artist", "short_name": "Francis Irabor",
     "icons": [{"src": "/assets/media/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/media/icon-512.png", "sizes": "512x512", "type": "image/png"}],
     "theme_color": "#fefefe", "background_color": "#fefefe", "display": "standalone", "start_url": "/"}, indent=1))
-open("robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
+_bots = ["Googlebot", "Bingbot", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+         "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended", "DuckDuckBot", "CCBot", "Amazonbot", "Meta-ExternalAgent"]
+open("robots.txt", "w").write("# Search engines and AI assistants are welcome to read and cite this site.\n" +
+    "".join(f"User-agent: {b}\n" for b in _bots) + "Allow: /\n\nUser-agent: *\nAllow: /\n\n" + f"Sitemap: {SITE}sitemap.xml\n")
 open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{SITE}{p}</loc><lastmod>{__import__('datetime').date.today().isoformat()}</lastmod></url>\n" for p in ["", "work.html", "case-studies.html", "about.html"]) + "</urlset>\n")
 print("built")

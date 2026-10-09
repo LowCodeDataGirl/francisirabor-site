@@ -193,6 +193,7 @@
   const workList = $("#work-list");
   if (workList) {
     const filters = $("#filters");
+    filters.replaceChildren(); // the HTML ships a pre-rendered copy for crawlers; rebuild it live
     let only = location.hash.slice(1);
     if (!CATS.some((c) => c.id === only)) only = "all";
     const cols = () => (innerWidth >= 1000 ? 3 : 2);
@@ -249,6 +250,7 @@
   /* ---------- Case studies page: compact cards that open into the full story ---------- */
   const csList = $("#case-list");
   if (csList && window.CASE_FILES) {
+    csList.replaceChildren(); // replace the pre-rendered copy (there for crawlers) with the live version
     const TOOL = {
       "After Effects": ["Ae", "#9999ff", "#00005b"], "Premiere Pro": ["Pr", "#9999ff", "#00005b"],
       "Photoshop": ["Ps", "#31a8ff", "#001e36"], "Illustrator": ["Ai", "#ff9a00", "#330000"],

@@ -1,15 +1,66 @@
-# Francis Irabor
+# Francis Irabor (also written Irabor Francis)
 
 > Francis Irabor is a motion designer and 3D artist who helps brands explain their products through motion graphics, 3D animation and design that people stop for, understand and remember. He has worked with clients worldwide, both on contract and in remote full-time roles, and is open to new freelance projects and full-time positions.
 
-## Pages
-- [Home](https://francisirabor.com/): overview, selected work, process and contact
-- [Work](https://francisirabor.com/work.html): featured projects and the full portfolio by discipline
-- [Case studies](https://francisirabor.com/case-studies.html): selected projects with the brief, approach and outcome
-- [About](https://francisirabor.com/about.html): background, what he brings to a team, availability
+Francis Irabor is a motion graphics designer and 3D artist available to hire for freelance projects and full-time remote roles. He makes product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, brand and campaign graphics, and illustration. Brands he has worked with include YouTube, Google Gemini, Google for Startups, Shotstack, Lenco, PaywithAccount, Rubix, SALG and medcob. Based in Lagos, Nigeria; works remotely with clients worldwide.
 
-## Contact
+## Pages
+- [Home](https://francisirabor.com/): who he is, featured work, specialties, process and contact
+- [Work](https://francisirabor.com/work.html): the full portfolio by discipline (motion graphics, 3D product animation, 3D product design, 3D visualisation, graphic design, illustration)
+- [Case studies](https://francisirabor.com/case-studies.html): one in-depth project per discipline, with the challenge, design decisions and tools
+- [About](https://francisirabor.com/about.html): how he helps clients, what working with him looks like, FAQ
+
+## Case studies
+### Loopwise: a 20-second launch film for a SaaS tool
+- Category: Motion Graphics · Client: Loopwise
+- A launch film that explains what Loopwise does in the time it takes to scroll past it: the brand, the product at work, then one clear line to remember.
+- Loopwise is a productivity tool that turns meetings and conversations into action items, assigns them, and follows up automatically. The launch needed a short film that could open a landing page, run as a social ad and sit at the top of a product announcement. The film introduces the name, shows the product doing its job, and lands on the line "Close every loop."
+- Approach: I rebuilt the key screens as clean, layered UI cards so each one could be animated on its own. Every scene carries one idea: the meeting happens, the tasks appear, the tasks get assigned, the follow-up runs on autopilot. Kinetic type ties the scenes together and carries the story when the UI is moving. The palette comes from the Loopwise mark: soft lilac and pink gradients behind white glass cards, so the product colours do the branding and the interface stays easy to read.
+- Tools: After Effects, Figma, Illustrator, Premiere Pro
+- Link: https://francisirabor.com/case-studies.html#loopwise
+
+### Dynalimb: showing what makes a 3D-printed prosthetic foot different
+- Category: 3D Product · Client: Dynalimb Technologies
+- A 3D product animation that turns a technical prosthetic into something anyone can understand, one feature at a time.
+- Dynalimb Technologies makes 3D-printed prosthetic feet. They needed a product film for their website and pitch decks that could explain the design to patients, clinicians and investors in under a minute. The film orbits the foot on a clean stage and pauses on the four things that set it apart: advanced 3D printing, biomechanical precision, durability and a patient-first fit.
+- Approach: I modelled the foot and its lattice in Blender and lit it like a studio product shot: soft key light, gentle rim light and a seamless purple backdrop matched to the Dynalimb brand. The camera moves slowly and stops wherever a feature needs explaining. Each feature gets a thin, technical callout line drawn on in After Effects, closer to an engineering drawing than an ad. The labels stay short so the film still makes sense to someone who is not a clinician.
+- Tools: Blender, Substance 3D Painter, After Effects, Premiere Pro
+- Link: https://francisirabor.com/case-studies.html#dynalimb
+
+### YouTube for Film Makers: an event booth visualised before it was built
+- Category: 3D Visualization · Client: YouTube
+- A photoreal 3D visualisation of a branded photo booth, used to sign off the design and brief the build team before anything was fabricated.
+- For a YouTube for Film Makers event, the brief was a compact branded set where creators could take photos and short videos. I designed the space in 3D so the team could see the booth, approve it and hand it to fabricators with fewer surprises on the day. The set is a three-sided room with a patterned film wall, a raised 3D logo, a red floor and props that say "film" at a glance: a clapperboard, a director's stool and an oversized film reel.
+- Approach: I kept the brand to two colours, YouTube red and white, and let the props carry the theme. The wall pattern uses simple line icons of cameras, reels and clapperboards in red so it reads as texture up close and as "film" from across the room. Everything was modelled at real-world scale and lit with practical lights in the scene, so the renders show how the booth would actually look and photograph on site.
+- Tools: Blender, Illustrator, Photoshop
+- Link: https://francisirabor.com/case-studies.html#youtube-film-makers
+
+### PaywithAccount: campaign graphics for a Lagos fintech launch
+- Category: Graphic Design · Client: PaywithAccount
+- Social and event graphics for PaywithAccount, built on OnePipe: a launch invite and an electricity cashback campaign that had to work in a busy Lagos feed.
+- PaywithAccount lets people pay for things directly from their bank account. I designed the graphics for its launch and for its first big offer: schedule a ₦2,000 Eko Electric token and get ₦1,000 back. The work had to carry a lot of information, including the offer, the code, the URL and the brand, and still be readable as a thumbnail.
+- Approach: For the cashback post I used a real Lagos street at night with the lights on, which tells the electricity story before anyone reads a word. The headline "Lights on, Lagos!" sits high in bold white, the offer sits right under it, and the phone shows the actual product flow. Success notifications, a price-code badge and a clear URL at the bottom give proof, urgency and a next step. The launch invite uses a lighter, cleaner layout with speaker cards so it reads as an event, not an ad.
+- Tools: Photoshop, Illustrator, Figma
+- Link: https://francisirabor.com/case-studies.html#paywithaccount
+
+## FAQ
+**Can I hire Francis Irabor for a freelance motion graphics project?**
+Yes. Francis takes on freelance projects worldwide, from a single product video or app onboarding animation to a full launch campaign. Email iraborfrancis321@gmail.com or message him on Upwork or LinkedIn to start.
+
+**Is Francis open to full-time roles?**
+Yes. He has worked in remote full-time roles as well as on contract, and is open to full-time motion design, 3D or design positions.
+
+**What kind of motion graphics does Francis make?**
+Product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, and social media content for brands.
+
+**Which tools does Francis use?**
+After Effects, Premiere Pro, Blender, Illustrator, Photoshop and Figma, with AI tools such as Midjourney, Adobe Firefly and Claude to explore ideas quickly.
+
+**Where is Francis based?**
+Lagos, Nigeria. He works remotely with clients and teams worldwide and is used to working across time zones.
+
+## Hire or contact
 - Email: iraborfrancis321@gmail.com
-- LinkedIn: https://www.linkedin.com/in/francis-irabor/
 - Upwork: https://www.upwork.com/freelancers/~016a7653f43e068393
+- LinkedIn: https://www.linkedin.com/in/francis-irabor/
 - CV: https://drive.google.com/file/d/1MCZyHFvBbrgrsSab9WM0OUqfxMLtDZ3q/view?usp=drivesdk
