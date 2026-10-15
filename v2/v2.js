@@ -9,6 +9,7 @@
   const BLURB = {
     "3d-product-design": "Studio-quality product renders, packaging and launch visuals made before a single unit ships.",
     "3d-product-animation": "Products that turn, open and catch the light: short 3D films for launches and ads.",
+    "3d-animation": "Original character animation and short film: story, world-building, lighting and edit.",
     "3d-visualization": "Event spaces and stages visualised in 3D so clients can approve the room before it's built.",
     "illustration": "Characters, banners and editorial illustration with a bold, playful line.",
     "graphics-design": "Campaign posters and social graphics for brands, causes and launches.",

@@ -7,6 +7,7 @@ window.ASSET_BASE = window.ASSET_BASE || "assets/";
 window.WORKS = {
   // New work (added Oct 2026)
   sr1: { type: "video", src: "video/story-roll-welcome.mp4", poster: "media/story-roll-welcome.jpg", ratio: 9/16, dur: 15.0, title: "Story Roll", caption: "First-use welcome video" },
+  vc1: { type: "video", src: "video/valli-of-chaddos.mp4", poster: "media/valli-of-chaddos.jpg", ratio: 1280 / 576, dur: 300, title: "Valli of Chaddos", caption: "Animated short film" },
   gm1: { type: "video", src: "video/gemini-night.mp4", poster: "media/gemini-night.jpg", ratio: 16 / 9, dur: 30, title: "Google Gemini", caption: "AI assistant brand film" },
   lw1: { type: "video", src: "video/loopwise-saas-launch.mp4", poster: "media/loopwise-saas-launch.jpg", ratio: 16/9, dur: 20.0, title: "Loopwise", caption: "SaaS launch film" },
   // 3D product design
@@ -56,6 +57,7 @@ window.PORTFOLIO = [
   { id: "3d-product-animation", title: "3D Product Animation", note: "3D Product Animations for clients in various industry, 2025",
     h: 760, bg: "grey", t: [76, 123, 531], n: [76, 267, 300],
     frames: [["pa1", 485, 87, 383, 215], ["pa2", 908, 87, 383, 215], ["pa3", 163, 352, 518, 291], ["pa4", 730, 352, 561, 291]] },
+  { id: "3d-animation", title: "3D Animation", note: "Original 3D animated short film, 2025", frames: [] },
   { id: "3d-visualization", title: "3D Visualization", note: "3D event visualization for clients in various industry, 2025",
     h: 760, bg: "white", t: [76, 109, 507], n: [76, 185, 286],
     frames: [["v1", 923, 92, 373, 373], ["v2", 582, 297, 298, 167], ["v3", 42, 381, 540, 304], ["v4", 582, 497, 332, 187], ["v5", 943, 497, 332, 187]] },
@@ -97,7 +99,7 @@ window.TOOL_ICONS = [
 ];
 
 /* New pieces shown first in a category on the v2 site (the Canva-layout pages ignore this). */
-window.NEW_WORKS = { "motion-graphics": ["lw1", "gm1", "sr1"] };
+window.NEW_WORKS = { "motion-graphics": ["lw1", "gm1", "sr1"], "3d-animation": ["vc1"] };
 
 /* Pieces taken off the v2 site (still listed above so the Canva-layout pages keep their shape):
    m3 Remi release clip, m4 altcoin, m5 Schedify teaser, m7 Remi landscape film. */
@@ -107,6 +109,7 @@ window.HIDDEN_WORKS = ["m3", "m4", "m5", "m7"];
 /* Strongest work first: category order, then piece order inside each category. */
 window.V2_ORDER = [
   ["motion-graphics", ["lw1", "gm1", "sr1", "m2", "m6", "m1", "m8"]],
+  ["3d-animation", ["vc1"]],
   ["3d-product-animation", ["pa3", "pa1", "pa2", "pa4"]],
   ["3d-product-design", ["p5", "p4", "p3", "p1", "p2"]],
   ["3d-visualization", ["v3", "v1", "v4", "v5", "v2"]],
@@ -156,6 +159,8 @@ Object.assign(window.WORKS, {
   cs_dl_b: { type: "image", src: "media/cs-dynalimb-sole.jpg", ratio: 16 / 9, title: "Dynalimb", caption: "Underside reveal" },
   cs_yt_a: { type: "image", src: "media/cs-youtube-wall.jpg", ratio: 540 / 304, title: "YouTube for Film Makers", caption: "Hero wall" },
   cs_yt_b: { type: "image", src: "media/cs-youtube-set.jpg", ratio: 700 / 315, title: "YouTube for Film Makers", caption: "Set props" },
+  cs_vc_a: { type: "image", src: "media/cs-valli-lantern.jpg", ratio: 1280 / 576, title: "Valli of Chaddos", caption: "The lantern in the valley" },
+  cs_vc_b: { type: "image", src: "media/cs-valli-name.jpg", ratio: 1280 / 576, title: "Valli of Chaddos", caption: "The name above every name" },
   cs_pa_a: { type: "image", src: "media/cs-paywithaccount-detail.jpg", ratio: 560 / 380, title: "PaywithAccount", caption: "Proof and offer details" }
 });
 Object.assign(window.WORKS.pa2, { title: "Dynalimb", caption: "3D product animation", poster: "media/dynalimb-poster.jpg" });
@@ -186,6 +191,29 @@ window.CASE_FILES = [
       { work: "cs_lw_b", title: "An end card that does one job", note: "The film ends on the logo and the promise, \"Close every loop\", with nothing else competing for attention. It holds long enough to read, so the film also works with the sound off." }
     ],
     tools: ["After Effects", "Figma", "Illustrator", "Premiere Pro"]
+  },
+  {
+    id: "valli-of-chaddos", category: "3D Animation", client: "Original short film", year: "2025",
+    title: "Valli of Chaddos: a 3D short film about walking through the valley of shadows",
+    summary: "A five-minute animated short, made with my cousin Ed Irabor, about a boy who carries one small light through a valley full of the things that haunt us.",
+    cover: "vc1", hero: "vc1",
+    facts: [["Deliverable", "Animated short film"], ["Format", "Cinematic widescreen · 5 minutes"], ["Role", "Co-director & co-producer · modelling, texturing, editing, motion graphics, concept art"], ["Team", "Ed Irabor (director) · Erasmus Irabor (voice, sound, music)"]],
+    overview: [
+      "Valli of Chaddos (Valley of Shadows) is an original 3D short film that Ed Irabor and I directed and produced together under ED Irabor Animation, with Exxalt Konsept Studios and Flowastra. Erasmus Irabor created the voice, sound and music.",
+      "The idea draws on Psalm 23: walking through the valley of the shadow of death without fear. A boy with a lantern crosses a dark valley where signposts name what haunts people, such as envy, emptiness and death. He passes skulls, traps, fire and a stone that tells him \"Now you die\". At his lowest point a name is written beneath him in light: Jesus, \"a name which is above every name\"."
+    ],
+    challenge: [
+      "A short film has to hold attention for five minutes with almost no dialogue, so every shot has to tell the story through light, space and design. We also built it as a small family team, which meant every model, texture and shot had to work hard."
+    ],
+    approach: [
+      "We built the whole valley in Blender, modelled and textured in a hand-made, stop-motion-like style so it feels like a world you could touch. The environment does the storytelling: signposts, carved stones and props spell out the boy's fears instead of a narrator explaining them.",
+      "Lighting carries the emotion. The valley is lit in cold blues and greens, the danger moments flare in orange fire, and the boy's lantern stays the one steady warm light, so the eye always finds him. I handled modelling, texturing, editing and the motion graphics, including the titles and the closing type, alongside co-directing."
+    ],
+    details: [
+      { work: "cs_vc_a", title: "One warm light in a cold world", note: "Every shot of the valley is graded cold, and the lantern is the only warm light in it. The audience always knows where the boy is, and feels how small his light is against the dark. Signs like \"Envy\" turn the landscape into his fears without a word of dialogue." },
+      { work: "cs_vc_b", title: "The turn, written in light", note: "When the spears fall the camera goes top-down, and the name Jesus appears across the ground beneath him like a title written into the world itself. The closing line, \"a name which is above every name\", lands as type in the same space instead of a separate card." }
+    ],
+    tools: ["Blender", "After Effects", "Premiere Pro", "Photoshop"]
   },
   {
     id: "dynalimb", category: "3D Product", client: "Dynalimb Technologies", year: "2025",

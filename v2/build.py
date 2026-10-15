@@ -192,7 +192,7 @@ FOOT = f'''<footer class="foot">
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><img src="../assets/media/francis-mark.svg" alt="" width="34" height="34"></span>Francis Irabor</a>
         <p class="blurb">{POSITION}</p>
       </div>
-      <div><h4>Work</h4><ul><li><a href="work.html#motion-graphics">Motion graphics</a></li><li><a href="work.html#3d-product-animation">3D product animation</a></li><li><a href="work.html#3d-product-design">3D product design</a></li><li><a href="work.html#3d-visualization">3D visualization</a></li><li><a href="work.html#graphics-design">Graphic design</a></li><li><a href="work.html#illustration">Illustration</a></li></ul></div>
+      <div><h4>Work</h4><ul><li><a href="work.html#motion-graphics">Motion graphics</a></li><li><a href="work.html#3d-animation">3D animation</a></li><li><a href="work.html#3d-product-animation">3D product animation</a></li><li><a href="work.html#3d-product-design">3D product design</a></li><li><a href="work.html#3d-visualization">3D visualization</a></li><li><a href="work.html#graphics-design">Graphic design</a></li><li><a href="work.html#illustration">Illustration</a></li></ul></div>
       <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="about.html">About</a></li><li><a href="{CV}" target="_blank" rel="noopener">CV</a></li></ul></div>
       <div><h4>Connect</h4><ul><li><a href="{TALK}">Email</a></li><li><a href="{LI}" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="{UP}" target="_blank" rel="noopener">Upwork</a></li></ul></div>
     </div>

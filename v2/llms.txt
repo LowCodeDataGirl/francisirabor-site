@@ -19,6 +19,14 @@ Francis Irabor is a motion graphics designer and 3D artist available to hire for
 - Tools: After Effects, Figma, Illustrator, Premiere Pro
 - Link: https://francisirabor.com/case-studies.html#loopwise
 
+### Valli of Chaddos: a 3D short film about walking through the valley of shadows
+- Category: 3D Animation · Client: Original short film
+- A five-minute animated short, made with my cousin Ed Irabor, about a boy who carries one small light through a valley full of the things that haunt us.
+- Valli of Chaddos (Valley of Shadows) is an original 3D short film that Ed Irabor and I directed and produced together under ED Irabor Animation, with Exxalt Konsept Studios and Flowastra. Erasmus Irabor created the voice, sound and music. The idea draws on Psalm 23: walking through the valley of the shadow of death without fear. A boy with a lantern crosses a dark valley where signposts name what haunts people, such as envy, emptiness and death. He passes skulls, traps, fire and a stone that tells him "Now you die". At his lowest point a name is written beneath him in light: Jesus, "a name which is above every name".
+- Approach: We built the whole valley in Blender, modelled and textured in a hand-made, stop-motion-like style so it feels like a world you could touch. The environment does the storytelling: signposts, carved stones and props spell out the boy's fears instead of a narrator explaining them. Lighting carries the emotion. The valley is lit in cold blues and greens, the danger moments flare in orange fire, and the boy's lantern stays the one steady warm light, so the eye always finds him. I handled modelling, texturing, editing and the motion graphics, including the titles and the closing type, alongside co-directing.
+- Tools: Blender, After Effects, Premiere Pro, Photoshop
+- Link: https://francisirabor.com/case-studies.html#valli-of-chaddos
+
 ### Dynalimb: showing what makes a 3D-printed prosthetic foot different
 - Category: 3D Product · Client: Dynalimb Technologies
 - A 3D product animation that turns a technical prosthetic into something anyone can understand, one feature at a time.
