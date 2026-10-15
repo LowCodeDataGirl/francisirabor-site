@@ -12,7 +12,7 @@ SITE = "https://francisirabor.com/"
 TALK = f"mailto:{MAIL}?subject=Let%27s%20talk"
 
 # One sentence that says who he is, for people, search engines and AI agents alike.
-HOME_DESC = ("Hire Francis Irabor (Irabor Francis), a motion graphics designer and 3D artist. Product videos, "
+HOME_DESC = ("Francis Irabor (Irabor Francis) is a remote motion designer, 3D designer and graphic designer. Product videos, "
              "SaaS launch films, app onboarding animations, 3D product animation and brand design for clients worldwide. "
              "Available for freelance projects and full-time remote roles.")
 
@@ -34,8 +34,10 @@ REEL = f'<svg {SV}><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 
 PERSON = {
   "@context": "https://schema.org", "@type": "Person", "@id": SITE + "#francis", "name": "Francis Irabor", "mainEntityOfPage": SITE,
   "alternateName": ["Irabor Francis", "Francis I."], "givenName": "Francis", "familyName": "Irabor",
-  "jobTitle": "Motion Designer & 3D Artist", "url": SITE, "email": f"mailto:{MAIL}",
+  "url": SITE, "email": f"mailto:{MAIL}",
   "description": POSITION,
+  "jobTitle": "Motion Designer & 3D Designer",
+  "hasOccupation": [{"@type": "Occupation", "name": "Motion Designer"}, {"@type": "Occupation", "name": "3D Designer"}, {"@type": "Occupation", "name": "Graphic Designer"}],
   "knowsAbout": ["Motion graphics", "Motion graphics design", "Motion design", "Product videos", "Explainer videos", "SaaS launch videos", "App onboarding videos", "UI animation", "Brand animation", "Logo animation", "2D and 3D animation", "3D product design", "3D product animation",
                  "3D visualization", "Brand identity", "Graphic design", "Illustration", "Launch videos", "Social media content"],
   "image": SITE + "assets/media/francis-headshot.jpg",
@@ -318,7 +320,7 @@ index = head("Francis Irabor — Motion Designer & 3D Artist", HOME_DESC, "") + 
 ''' + FOOT
 
 # ---------------- Work ----------------
-work = head("Motion Graphics & 3D Portfolio — Francis Irabor", "The portfolio of Francis Irabor: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.", "work.html") + header("Work") + f'''
+work = head("Motion Design & 3D Design Portfolio — Francis Irabor", "The portfolio of Francis Irabor, motion designer, 3D designer and graphic designer: motion graphics, 3D product animation and design, 3D visualization, graphic design and illustration.", "work.html") + header("Work") + f'''
 <main>
   <section class="page-head center">
     <div class="dots" aria-hidden="true"></div>
@@ -386,6 +388,8 @@ FAQS = [
    "Yes. Francis takes on freelance projects worldwide, from a single product video or app onboarding animation to a full launch campaign. Email " + MAIL + " or message him on Upwork or LinkedIn to start."),
   ("Is Francis open to full-time roles?",
    "Yes. He has worked in remote full-time roles as well as on contract, and is open to full-time motion design, 3D or design positions."),
+  ("Does Francis work remotely?",
+   "Yes. Francis is a fully remote motion designer and 3D designer. He works with teams across time zones and shares work in progress at every stage, so feedback is quick wherever you are."),
   ("What kind of motion graphics does Francis make?",
    "Product and SaaS launch videos, explainer videos, app onboarding and welcome videos, UI animation, logo animation, 3D product animation, 3D event visualisation, and social media content for brands."),
   ("Which tools does Francis use?",
