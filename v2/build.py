@@ -32,7 +32,7 @@ SAVE = f'<svg {SV}><path d="M6 3h12v18l-6-4-6 4z"/></svg>'
 REEL = f'<svg {SV}><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M14 3l3 5"/><path d="M10 12v5l4-2.5z" fill="currentColor"/></svg>'
 
 PERSON = {
-  "@context": "https://schema.org", "@type": "Person", "name": "Francis Irabor",
+  "@context": "https://schema.org", "@type": "Person", "@id": SITE + "#francis", "name": "Francis Irabor", "mainEntityOfPage": SITE,
   "alternateName": ["Irabor Francis", "Francis I."], "givenName": "Francis", "familyName": "Irabor",
   "jobTitle": "Motion Designer & 3D Artist", "url": SITE, "email": f"mailto:{MAIL}",
   "description": POSITION,
@@ -45,7 +45,7 @@ PERSON = {
 }
 
 SITEJSON = {"@context": "https://schema.org", "@type": "WebSite", "name": "Francis Irabor", "url": SITE,
-            "description": POSITION, "author": {"@type": "Person", "name": "Francis Irabor"}}
+            "description": POSITION, "author": {"@id": SITE + "#francis"}, "publisher": {"@id": SITE + "#francis"}}
 OG = SITE + "assets/media/og-francis-irabor-card.jpg"
 
 def head(title, desc, path=""):
@@ -190,7 +190,7 @@ FOOT = f'''<footer class="foot">
     <div class="foot-grid">
       <div>
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"><img src="../assets/media/francis-mark.svg" alt="" width="34" height="34"></span>Francis Irabor</a>
-        <p class="blurb">{POSITION}</p>
+        <p class="blurb">{POSITION.replace("Francis Irabor is", "Francis Irabor (also written Irabor Francis) is", 1)}</p>
       </div>
       <div><h4>Work</h4><ul><li><a href="work.html#motion-graphics">Motion graphics</a></li><li><a href="work.html#3d-animation">3D animation</a></li><li><a href="work.html#3d-product-animation">3D product animation</a></li><li><a href="work.html#3d-product-design">3D product design</a></li><li><a href="work.html#3d-visualization">3D visualization</a></li><li><a href="work.html#graphics-design">Graphic design</a></li><li><a href="work.html#illustration">Illustration</a></li></ul></div>
       <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="work.html">Work</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="about.html">About</a></li><li><a href="{CV}" target="_blank" rel="noopener">CV</a></li></ul></div>
@@ -255,13 +255,13 @@ SPECS = [
 ]
 
 # ---------------- Home ----------------
-index = head("Francis Irabor — Motion Graphics Designer & 3D Artist for Hire", HOME_DESC, "") + header("") + f'''
+index = head("Francis Irabor — Motion Designer & 3D Artist", HOME_DESC, "") + header("") + f'''
 <main>
   <section class="hero center">
     <div class="dots" aria-hidden="true"></div>
     <div class="wrap">
-      <p class="eyebrow hero-who">Francis Irabor · Motion designer &amp; 3D artist</p>
-      <h1 class="h1">Animation and design<br class="br-d"> that drives {mark("engagement")}</h1>
+      <h1 class="eyebrow hero-who">Francis Irabor · Motion designer &amp; 3D artist</h1>
+      <p class="h1">Animation and design<br class="br-d"> that drives {mark("engagement")}</p>
       <p class="lede">Launch films, 3D product visuals and campaign design that help brands get noticed, get understood and get remembered.</p>
       <div class="hero-cta">
         <a class="btn btn-dark" href="#contact">Let's talk {ARR}</a>
@@ -508,3 +508,31 @@ open("robots.txt", "w").write("# Search engines and AI assistants are welcome to
 open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{SITE}{p}</loc><lastmod>{__import__('datetime').date.today().isoformat()}</lastmod></url>\n" for p in ["", "work.html", "case-studies.html", "about.html"]) + "</urlset>\n")
 print("built")
+
+# Old Canva-era addresses Google may still have: send them (and their ranking) to the new pages.
+REDIRECTS = {"portfolio.html": "work.html", "home.html": ""}
+for old, new in REDIRECTS.items():
+    open(old, "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Francis Irabor — Motion Designer &amp; 3D Artist</title>
+<link rel="canonical" href="{SITE}{new}"><meta http-equiv="refresh" content="0; url={SITE}{new}">
+<meta name="robots" content="noindex, follow"></head>
+<body><p><a href="{SITE}{new}">Francis Irabor's portfolio has moved here.</a></p></body></html>
+""")
+open("404.html", "w").write(head("Page not found — Francis Irabor", "This page doesn't exist. Visit Francis Irabor's portfolio.", "404.html").replace('content="index, follow, max-image-preview:large"', 'content="noindex"') + header("") + f'''
+<main>
+  <section class="page-head center">
+    <div class="wrap">
+      <h1 class="h1">This page has {mark("moved")}</h1>
+      <p class="lede">The page you were looking for isn't here any more. Francis Irabor's work, case studies and contact details are all a click away.</p>
+      <div class="hero-cta"><a class="btn btn-dark" href="index.html">Go to the homepage {ARR}</a><a class="btn btn-line" href="work.html">See the work</a></div>
+    </div>
+  </section>
+</main>
+''' + FOOT)
+_p = open("404.html").read()
+for x, y in [('"../assets/', '"/assets/'), ('"../works.js"', '"/works.js"'), ('href="v2.css"', 'href="/v2.css"'), ('src="v2.js"', 'src="/v2.js"'),
+             ('href="index.html"', 'href="/"'), ('href="work.html', 'href="/work.html'), ('href="about.html"', 'href="/about.html"'),
+             ('href="case-studies.html"', 'href="/case-studies.html"'), ('href="site.webmanifest"', 'href="/site.webmanifest"'), ('ASSET_BASE = "../assets/"', 'ASSET_BASE = "/assets/"')]:
+    _p = _p.replace(x, y)
+open("404.html", "w").write(_p)
+print("redirects + 404 written")

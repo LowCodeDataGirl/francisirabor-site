@@ -639,3 +639,5 @@ body.lb-open { overflow: hidden; }
   .logo { font-size: .95rem; gap: 8px; }
   .top-cta .btn-sm { padding: 0 10px; }
 }
+/* The hero headline is now a <p> (his name is the page's h1), so give it the heading look explicitly */
+p.h1 { font-family: var(--display); color: var(--ink); font-weight: 500; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
